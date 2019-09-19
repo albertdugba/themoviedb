@@ -1,26 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import "./App.css";
+import MovieProvider from "./components/context";
+import Banner from "./components/Layouts/Banner";
+import TvShows from "./components/Movies/TvShows";
+import NavBar from "./components/Layouts/NavBar";
+
+class App extends Component {
+  render() {
+    return (
+      <Router>
+        <MovieProvider>
+          <div>
+            <div className="navbar-header">
+              <NavBar />
+            </div>
+            <Switch>
+              <Route exact path="/tvshows" component={TvShows} />
+              <Banner />
+            </Switch>
+          </div>
+        </MovieProvider>
+      </Router>
+    );
+  }
 }
 
 export default App;
