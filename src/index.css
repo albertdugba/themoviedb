@@ -1,7 +1,11 @@
-body {
+* {
+  padding: 0;
   margin: 0;
-  font-family: "Patua One", cursive !important;
-  font-weight: normal !important;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif !important;
 }
 
 code {
