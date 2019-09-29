@@ -17,6 +17,12 @@ img {
   /* padding-left: 1rem; */
 }
 
-.card-p {
+.list-group-item {
   text-align: left !important;
+  margin-top: 2px !important;
+  color: darkblue !important;
+}
+
+a {
+  text-decoration: none !important;
 }
