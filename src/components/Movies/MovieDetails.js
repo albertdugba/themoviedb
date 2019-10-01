@@ -39,16 +39,18 @@ class MovieDetails extends Component {
 
           <div className="single-movie-children">
             <img
-              src={`https://image.tmdb.org/t/p/w500/${moviesPage.poster_path}`}
+              src={`https://image.tmdb.org/t/p/w154/${moviesPage.poster_path}`}
               alt={moviesPage.title}
               className="paddings"
             />
             <div className="single-movie-subchildren paddings">
-              <h1>{moviesPage.title}</h1>
-              <p>{moviesPage.release_date}</p>
-              <p>{moviesPage.overview}</p>
-              <span>{moviesPage.runtime}</span>
-              <p>{moviesPage.budget}</p>
+              <h1>Title: {moviesPage.title}</h1>
+              <p>Released Date: {moviesPage.release_date}</p>
+              <p>Overview: {moviesPage.overview}</p>
+              <span>Runtime: {moviesPage.runtime}</span>
+              <p>Budget: ${moviesPage.budget}</p>
+              <p>Status: {moviesPage.status}</p>
+              <p>Revenue: {moviesPage.revenue}</p>
               <p>
                 <a href={moviesPage.homepage} target="_">
                   Homepage

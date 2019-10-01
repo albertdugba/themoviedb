@@ -8,7 +8,7 @@ const MoviesResult = () => {
   return (
     <MovieConsumer>
       {value => {
-        console.log(value);
+        // console.log(value);
         const { movies, title } = value;
         if (movies === undefined || movies.length === 0) {
           return <p>Movies Loading...</p>;

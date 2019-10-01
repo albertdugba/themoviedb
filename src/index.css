@@ -6,6 +6,8 @@
 
 body {
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif !important;
+  background: rgb(12, 37, 65) !important;
+  color: #fff !important;
 }
 
 code {
