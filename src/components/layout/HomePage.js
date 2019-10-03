@@ -8,8 +8,8 @@ import HeroImage from "../Movies/HeroImage";
 const HomePage = () => {
   return (
     <React.Fragment>
+      <HeroImage />
       <div className="movies-container">
-        <HeroImage />
         <SearchParams className="text-center" />
         <MoviesResult />
       </div>

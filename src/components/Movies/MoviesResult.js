@@ -3,6 +3,7 @@ import { MovieConsumer } from "../../context";
 import TrendingMovies from "./TrendingMovies";
 
 import "../../App.css";
+import Spinner from "../Spinner";
 
 const MoviesResult = () => {
   return (
@@ -11,12 +12,12 @@ const MoviesResult = () => {
         // console.log(value);
         const { movies, title } = value;
         if (movies === undefined || movies.length === 0) {
-          return <p>Movies Loading...</p>;
+          return <Spinner />;
         } else {
           return (
             <React.Fragment>
               <div className="movies-container">
-                <h1>{title}</h1>
+                <h1 className="text-center">{title}</h1>
                 <div className="movie-grid">
                   {movies.map(movie => (
                     <TrendingMovies {...movie} key={movie.id} />

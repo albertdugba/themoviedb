@@ -31,7 +31,7 @@ export class MovieProvider extends Component {
       .then(res =>
         this.setState({
           movies: res.data.results,
-          heroImage: res.data.results[0]
+          heroImage: res.data.results[19]
         })
       )
       .catch(error => console.log(error));

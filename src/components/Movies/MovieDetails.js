@@ -1,12 +1,16 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
+import { FaMoneyBill, FaClock, FaHome, FaArrowRight } from "react-icons/fa";
 
 import "../../App.css";
+import Spinner from "../Spinner";
 
 class MovieDetails extends Component {
   state = {
     title: "",
-    moviesPage: {}
+    moviesPage: {},
+    casts: {}
   };
 
   componentDidMount() {
@@ -24,38 +28,47 @@ class MovieDetails extends Component {
     console.log(moviesPage);
 
     if (moviesPage === undefined || Object.keys(moviesPage).length === 0) {
-      return <h2>Movie Loading.......</h2>;
+      return <Spinner />;
     } else {
       return (
         <React.Fragment>
-          <div className="container"></div>
           <div>
             <img
-              src={`https://image.tmdb.org/t/p/w500/${moviesPage.backdrop_path}`}
+              src={`https://image.tmdb.org/t/p/original/${moviesPage.backdrop_path}`}
               alt=""
               className="img-backdrop"
             />
           </div>
 
           <div className="single-movie-children">
-            <img
-              src={`https://image.tmdb.org/t/p/w154/${moviesPage.poster_path}`}
-              alt={moviesPage.title}
-              className="paddings"
-            />
-            <div className="single-movie-subchildren paddings">
-              <h1>Title: {moviesPage.title}</h1>
-              <p>Released Date: {moviesPage.release_date}</p>
-              <p>Overview: {moviesPage.overview}</p>
-              <span>Runtime: {moviesPage.runtime}</span>
-              <p>Budget: ${moviesPage.budget}</p>
-              <p>Status: {moviesPage.status}</p>
-              <p>Revenue: {moviesPage.revenue}</p>
-              <p>
-                <a href={moviesPage.homepage} target="_">
-                  Homepage
-                </a>
-              </p>
+            <div className="detailed-container">
+              <img
+                src={`https://image.tmdb.org/t/p/w500/${moviesPage.poster_path}`}
+                alt={moviesPage.title}
+                className="paddings"
+              />
+              <div className="paddings">
+                <div className="movies-cont">
+                  <h1>Title: {moviesPage.title}</h1>
+                  <strong>Released Date: {moviesPage.release_date}</strong>
+                  <p> Overview: {moviesPage.overview}</p>
+                  <span>
+                    <FaClock /> Runtime: {moviesPage.runtime}
+                  </span>
+                  <p>
+                    <FaMoneyBill /> Budget: ${moviesPage.budget}
+                  </p>
+                  <p>Status: {moviesPage.status}</p>
+                  <p>
+                    <FaMoneyBill /> Revenue: {moviesPage.revenue}
+                  </p>
+                  <p>
+                    <Link to={moviesPage.homepage} target="_" className="link">
+                      <FaHome /> Visit movie homepage <FaArrowRight />
+                    </Link>
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </React.Fragment>
