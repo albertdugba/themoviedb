@@ -32,11 +32,12 @@ class SearchParams extends Component {
 
   render() {
     const { movieTitle } = this.state;
+
     return (
       <MovieConsumer>
         {value => {
           const { dispatch } = value;
-          console.log(dispatch);
+
           return (
             <form onSubmit={this.handleSearchMovie.bind(this, dispatch)}>
               <input

@@ -9,8 +9,7 @@ import Spinner from "../Spinner";
 class MovieDetails extends Component {
   state = {
     title: "",
-    moviesPage: {},
-    casts: {}
+    moviesPage: {}
   };
 
   componentDidMount() {

@@ -28,12 +28,13 @@ export class MovieProvider extends Component {
       .get(
         `https://api.themoviedb.org/3/trending/movie/day?api_key=4be3dca1c64c2fb77f30770cd942a1e2`
       )
-      .then(res =>
+      .then(res => {
+        console.log(res.data.results);
         this.setState({
           movies: res.data.results,
-          heroImage: res.data.results[19]
-        })
-      )
+          heroImage: res.data.results[10]
+        });
+      })
       .catch(error => console.log(error));
   }
 

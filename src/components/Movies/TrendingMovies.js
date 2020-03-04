@@ -6,7 +6,7 @@ import "../../App.css";
 const TrendingMovies = ({ title, poster_path, id }) => {
   return (
     <div className="movie-grid">
-      <Link to={`movie/title/${id}`}>
+      <Link to={`/movie/title/${id}`}>
         <div className="cad">
           <img
             src={`https://image.tmdb.org/t/p/original/${poster_path}`}
