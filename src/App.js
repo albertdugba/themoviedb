@@ -1,22 +1,17 @@
-import React, { Component } from "react";
+import React from "react";
 import { Route, Switch } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import MovieDetails from "./components/MovieDetails";
 
-import "./App.css";
-import { MovieProvider } from "./context";
-import HomePage from "./components/layout/HomePage";
-import MovieDetails from "./components/Movies/MovieDetails";
-
-class App extends Component {
-  render() {
-    return (
-      <MovieProvider>
-        <Switch>
-          <Route exact path="/" component={HomePage} />
-          <Route exact path="/movie/title/:id" component={MovieDetails} />
-        </Switch>
-      </MovieProvider>
-    );
-  }
-}
+const App = () => {
+  return (
+    <>
+      <Switch>
+        <Route exact path="/" component={HomePage} />
+        <Route exact path="/movie/title/:id" component={MovieDetails} />
+      </Switch>
+    </>
+  );
+};
 
 export default App;

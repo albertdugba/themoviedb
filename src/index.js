@@ -4,10 +4,13 @@ import "./index.css";
 import App from "./App";
 import { BrowserRouter as Router } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { GlobalContextProvider } from "./context/GlobalState";
 
 ReactDOM.render(
   <Router>
-    <App />
+    <GlobalContextProvider>
+      <App />
+    </GlobalContextProvider>
   </Router>,
   document.getElementById("root")
 );
