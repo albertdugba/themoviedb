@@ -1,5 +1,6 @@
 import React, { useEffect, useReducer } from "react";
 import axios from "axios";
+
 import Movie from "./Movie";
 import { AppReducer, initialState } from "../context/AppReducer";
 import {
@@ -7,6 +8,8 @@ import {
   MOVIE_SEARCH_REQUEST
 } from "../constants/constants";
 import SearchParams from "./SearchParams";
+import { Wrapper } from "../styles/GlobalStyles";
+import Spinner from "./Spinner";
 
 const MoviesContainer = () => {
   const [state, dispatch] = useReducer(AppReducer, initialState);
@@ -17,7 +20,6 @@ const MoviesContainer = () => {
         type: MOVIE_SEARCH_SUCCESS,
         payload: response.data.results
       });
-      //   console.log(response.data);
     });
   }, []);
 
@@ -25,25 +27,34 @@ const MoviesContainer = () => {
     dispatch({ type: MOVIE_SEARCH_REQUEST });
     const queryUrl = `https://api.themoviedb.org/3/search/movie?api_key=4be3dca1c64c2fb77f30770cd942a1e2&query=${value}`;
     axios.get(queryUrl).then(response => {
-      dispatch({ type: MOVIE_SEARCH_SUCCESS, payload: response.data });
-      console.log("Search Movies", response.data.results);
+      dispatch({
+        type: MOVIE_SEARCH_SUCCESS,
+        payload: response.data,
+        title: "Searched Results"
+      });
+      console.log("Search Movies", queryUrl);
     });
   };
-  const { movies, loading, errorMessage } = state;
+  const { movies, loading, errorMessage, title, heroImage } = state;
+  console.log("Hero Image", heroImage);
   const allMovies =
-    loading && !errorMessage && movies.length === 0 ? (
-      <p>loading....</p>
+    movies === undefined || movies.length === 0 ? (
+      <Spinner />
+    ) : loading && !errorMessage ? (
+      <p>{errorMessage}</p>
     ) : (
-      movies.map(movie => <Movie {...movie} key={movie.id} />)
+      movies.map((movie, idx) => (
+        <Movie key={`${idx}-${movie.id}`} {...movie} />
+      ))
     );
-
-  console.log(allMovies, "ehh");
+  //   console.log("loadedMovies", movies);
 
   return (
-    <div>
+    <Wrapper>
       <SearchParams onSearch={onSearch} />
+      <h1>{title}</h1>
       <div>{allMovies}</div>
-    </div>
+    </Wrapper>
   );
 };
 

@@ -21,7 +21,7 @@ export const AppReducer = (state, action) => {
       return {
         ...state,
         movies: [...state.movies, action.payload],
-        heroImage: [...state.heroImage, action.payload],
+        heroImage: [...state.heroImage, action.payload[0]],
         loading: false,
         errorMessgae: null
       };
