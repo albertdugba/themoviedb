@@ -4,7 +4,7 @@ const Movie = ({ title, overview }) => {
   return (
     <>
       <h1>Movie :{title}</h1>
-      <p>{overview}</p>
+      <p>Overview:{overview}</p>
     </>
   );
 };
