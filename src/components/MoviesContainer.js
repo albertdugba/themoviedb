@@ -47,7 +47,7 @@ const MoviesContainer = () => {
         <Movie key={`${idx}-${movie.id}`} {...movie} />
       ))
     );
-  //   console.log("loadedMovies", movies);
+  console.log("loadedMovies", movies);
 
   return (
     <Wrapper>
