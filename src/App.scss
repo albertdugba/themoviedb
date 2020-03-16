@@ -43,6 +43,7 @@ img {
 form input {
   width: 400px;
   padding: 0.4rem;
+  padding-left: 1rem;
   border: none;
   outline: none;
   border: 2px solid white;
@@ -52,4 +53,10 @@ form input {
   display: flex;
   align-items: center;
   flex-direction: column;
+}
+
+// Movie
+
+.Movie-title {
+  margin-top: 40px;
 }

@@ -12,7 +12,7 @@ export const GlobalStyles = createGlobalStyle`
 
 
     body{
-        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+        font-family: "Vollkorn", serif !important;
         background:${({ theme }) => theme.bgColor} !important;
         color:${({ theme }) => theme.textColor} !important;
         height:100vh;

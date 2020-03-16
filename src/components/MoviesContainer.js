@@ -3,6 +3,7 @@ import axios from "axios";
 
 import Movie from "./Movie";
 import { AppReducer, initialState } from "../context/AppReducer";
+
 import {
   MOVIE_SEARCH_SUCCESS,
   MOVIE_SEARCH_REQUEST
@@ -35,24 +36,23 @@ const MoviesContainer = () => {
       console.log("Search Movies", queryUrl);
     });
   };
-  const { movies, loading, errorMessage, title, heroImage } = state;
-  console.log("Hero Image", heroImage);
+  const { movies, loading, errorMessage, title } = state;
+
   const allMovies =
     movies === undefined || movies.length === 0 ? (
       <Spinner />
     ) : loading && !errorMessage ? (
       <p>{errorMessage}</p>
     ) : (
-      movies.map((movie, idx) => (
-        <Movie key={`${idx}-${movie.id}`} {...movie} />
-      ))
+      movies.map((movie, idx) => <Movie key={idx} {...movie} />)
     );
-  console.log("loadedMovies", movies);
+
+  console.log(movies);
 
   return (
     <Wrapper>
       <SearchParams onSearch={onSearch} />
-      <h1>{title}</h1>
+      <h1 className="Movie-title">{title}</h1>
       <div>{allMovies}</div>
     </Wrapper>
   );
