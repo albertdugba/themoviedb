@@ -1,12 +1,11 @@
 import React from "react";
 import MoviesContainer from "../components/MoviesContainer";
-import { Wrapper } from "../styles/GlobalStyles";
 
 const HomePage = () => {
   return (
-    <Wrapper>
+    <div className="container">
       <MoviesContainer />
-    </Wrapper>
+    </div>
   );
 };
 

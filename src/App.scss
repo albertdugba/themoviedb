@@ -1,3 +1,4 @@
+@import "./stylesheet/variables";
 :root {
   --s-loader-wrapper-bg-color: rgb(21, 22, 43);
   --s-loader-width: 20px;
@@ -9,7 +10,6 @@
 .loader {
   width: var(--s-loader-width);
   height: var(--s-loader-height);
-
   border: 5px solid var(--s-loader-border-color-trans);
   border-left-color: var(--s-loader-border-color-full);
   border-radius: 50%;
@@ -18,9 +18,7 @@
   justify-content: center;
   padding: 1.2rem;
   text-align: center;
-
   background: transparent;
-
   animation-name: rotate-s-loader;
   animation-iteration-count: infinite;
   animation-duration: 0.3s;
@@ -36,27 +34,89 @@
     transform: rotate(360deg);
   }
 }
-img {
-  width: 400px;
-  height: 400px;
-}
-form input {
-  width: 400px;
-  padding: 0.4rem;
-  padding-left: 1rem;
-  border: none;
-  outline: none;
-  border: 2px solid white;
-  border-radius: 20px;
-  text-align: start;
-  justify-content: center;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-}
 
 // Movie
+body {
+  font-family: "Anton", sans-serif !important;
+  font-weight: 300 !important;
+}
 
-.Movie-title {
-  margin-top: 40px;
+.mt-1 {
+  margin-top: 30px;
+}
+
+form {
+  margin-top: 25px;
+}
+
+// Container - Base Styles
+.container {
+  width: 85%;
+  max-width: 1140px;
+  margin: 0 auto;
+
+  img {
+    width: 100%;
+    height: 300px;
+  }
+}
+
+// Search Form
+
+form {
+  margin-top: 20px;
+
+  input {
+    width: 50%;
+    padding-left: 1rem;
+    outline: none;
+    margin: auto;
+  }
+}
+
+.images-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 1.5rem;
+  margin-top: 20px;
+}
+
+.movie-img {
+  opacity: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: 0.5s ease;
+  backface-visibility: hidden;
+}
+
+.image-overlay {
+  position: relative;
+}
+
+.image-overlay:hover .image {
+  opacity: 0.3;
+}
+
+.image-overlay:hover .middle {
+  opacity: 1;
+}
+
+.middle {
+  transition: 0.5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.image-text {
+  background-color: darken($image-overlay, 60%);
+  color: white;
+  font-size: 16px;
+  padding: 16px 32px;
+  width: 100%;
 }

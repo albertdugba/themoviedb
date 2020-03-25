@@ -3,11 +3,11 @@ import { AppReducer, initialState } from "./AppReducer";
 
 export const GlobalContext = createContext();
 
-export const GlobalContextProvider = props => {
+export const GlobalContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(AppReducer, initialState);
   return (
     <GlobalContext.Provider value={{ state, dispatch }}>
-      {props.children}
+      {children}
     </GlobalContext.Provider>
   );
 };

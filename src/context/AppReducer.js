@@ -6,28 +6,27 @@ import {
 
 export const initialState = {
   movies: [],
-  heroImage: [],
-  title: "Trending Movies",
+  heroImg: [],
   loading: false,
-  errorMessgae: null
+  errorMessage: null
 };
 
 export const AppReducer = (state, action) => {
   switch (action.type) {
     case MOVIE_SEARCH_REQUEST:
-      return { ...state, loading: true, errorMessgae: null };
+      return { ...state, loading: true, errorMessage: null };
 
     case MOVIE_SEARCH_SUCCESS:
       return {
         ...state,
-        movies: [...state.movies, action.payload],
-        heroImage: [...state.heroImage, action.payload[0]],
+        movies: action.payload,
+        heroImg: [state.heroImg, action.payload[12]],
         loading: false,
-        errorMessgae: null
+        errorMessage: null
       };
 
     case MOVIE_SEARCH_FAILED:
-      return { ...state, loading: false, errorMessgae: action.error };
+      return { ...state, loading: false, errorMessage: null };
 
     default:
       return state;
