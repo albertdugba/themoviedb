@@ -5,14 +5,15 @@ const HeroImage = ({ hero }) => {
     hero &&
     hero.map((h, idx) => {
       return (
-        <div>
+        <div className="hero-container" key={idx}>
           <img
             key={idx}
-            src={`https://image.tmdb.org/t/p/w500/${h.poster_path}`}
+            src={`https://image.tmdb.org/t/p/original/${h.backdrop_path}`}
             alt={h.title}
             style={heroImageStyles}
+            className="hero-backdrop-img"
           />
-          <h1>{h.title}</h1>
+          <p className="hero-text">{h.overview}</p>
         </div>
       );
     });
@@ -22,7 +23,7 @@ const HeroImage = ({ hero }) => {
 
 const heroImageStyles = {
   width: "100%",
-  height: "100vh"
+  height: "60vh"
 };
 
 export default HeroImage;

@@ -1,4 +1,8 @@
 @import "./stylesheet/variables";
+
+body {
+  background: #0000 !important;
+}
 :root {
   --s-loader-wrapper-bg-color: rgb(21, 22, 43);
   --s-loader-width: 20px;
@@ -67,15 +71,19 @@ form {
   margin-top: 20px;
 
   input {
-    width: 50%;
+    width: 500px;
     padding-left: 1rem;
     outline: none;
     margin: auto;
+    box-shadow: 3px 3px 3px 0 rgba(206, 51, 51, 0.7);
+    border: none;
+    border: 2px solid red;
   }
 }
 
 .images-list {
   display: grid;
+
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   grid-gap: 1.5rem;
   margin-top: 20px;
@@ -88,6 +96,12 @@ form {
   height: auto;
   transition: 0.5s ease;
   backface-visibility: hidden;
+  transition: all 0.5s ease-in;
+}
+
+.movie-img:hover {
+  box-shadow: 2px 3px rgba(0, 0, 0, 0.4);
+  transform: scaleX(1);
 }
 
 .image-overlay {
@@ -118,5 +132,51 @@ form {
   color: white;
   font-size: 16px;
   padding: 16px 32px;
+  width: 100%;
+}
+
+// Hero Image
+
+.hero-backdrop-img {
+  position: relative;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: -1;
+}
+
+.hero-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  color: black;
+  width: 100%;
+}
+
+.container-inner {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.container-inner::after {
+  content: "";
+  background-color: black;
+  // box-shadow: ;
+  webkit-box-shadow: 10px 10px 5px 0px rgba(46, 74, 117, 1);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(46, 74, 117, 1);
+  box-shadow: 10px 10px 5px 0px rgba(46, 74, 117, 1);
+  opacity: 0.9;
+  z-index: -1;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
   width: 100%;
 }

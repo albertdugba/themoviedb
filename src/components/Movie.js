@@ -1,9 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Movie = ({ title, backdrop, poster_path }) => {
+const Movie = ({ id, title, backdrop, poster_path }) => {
+  console.log(id);
   return (
-    <Link to="/movie-details">
+    <Link to={`/movie/title/${id}`}>
       <div className="image-overlay">
         <img
           src={`https://image.tmdb.org/t/p/w500/${

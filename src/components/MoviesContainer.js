@@ -48,7 +48,8 @@ const MoviesContainer = () => {
       });
     console.log(queryUrl);
   };
-  const { movies, loading, errorMessage, heroImg } = state;
+  const { movies, loading, errorMessage, heroImg, title } = state;
+  console.log(movies);
 
   const loadedData =
     movies === undefined ||
@@ -61,6 +62,8 @@ const MoviesContainer = () => {
     ) : (
       movies.map(movie => (
         <div key={movie.id}>
+          {/* <HeroImage hero={heroImg} /> */}
+
           <Movie {...movie} />
         </div>
       ))
@@ -68,8 +71,12 @@ const MoviesContainer = () => {
 
   return (
     <div className="container">
-      <HeroImage hero={heroImg} />
-      <Search search={onSearchQuery} />
+      <div className="container-inner">
+        <div className="hero">
+          <Search search={onSearchQuery} />
+        </div>
+      </div>
+      <h1>{title}</h1>
       <div className="images-list">{loadedData}</div>
     </div>
   );

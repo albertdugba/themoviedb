@@ -7,6 +7,7 @@ import {
 export const initialState = {
   movies: [],
   heroImg: [],
+  title: "Trending Movies",
   loading: false,
   errorMessage: null
 };
@@ -20,13 +21,21 @@ export const AppReducer = (state, action) => {
       return {
         ...state,
         movies: action.payload,
-        heroImg: [state.heroImg, action.payload[12]],
+        heroImg: [state.heroImg, action.payload[18]],
         loading: false,
         errorMessage: null
       };
 
     case MOVIE_SEARCH_FAILED:
       return { ...state, loading: false, errorMessage: null };
+
+    case "MOVIE_DETAILS":
+      return {
+        ...state,
+        loading: true,
+        errorMessage: null,
+        movies: action.payload
+      };
 
     default:
       return state;
