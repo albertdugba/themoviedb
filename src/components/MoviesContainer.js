@@ -34,6 +34,7 @@ const MoviesContainer = () => {
 
   const onSearchQuery = query => {
     dispatch({ type: MOVIE_SEARCH_REQUEST });
+
     const queryUrl = `https://api.themoviedb.org/3/search/movie?api_key=4be3dca1c64c2fb77f30770cd942a1e2&language=en-US&page=1&include_adult=false&query=${query}`;
     axios
       .get(queryUrl)
