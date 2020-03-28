@@ -73,7 +73,7 @@ const MoviesContainer = () => {
   return (
     <div className="container">
       <div className="container-inner">
-        <div className="hero">
+        <div className="heo">
           <Search search={onSearchQuery} />
         </div>
       </div>
