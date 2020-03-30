@@ -1,8 +1,9 @@
 import React, { useEffect, useReducer } from "react";
 import axios from "axios";
 
+import { FaFilm } from "react-icons/fa";
+
 import Movie from "./Movie";
-import HeroImage from "./HeroImage";
 import Search from "./Search";
 import Spinner from "./Spinner";
 import { AppReducer, initialState } from "../context/AppReducer";
@@ -11,7 +12,7 @@ import {
   MOVIE_SEARCH_SUCCESS,
   MOVIE_SEARCH_FAILED
 } from "../constants/constants";
-// import HeroImage from "./HeroImage";
+import SideBar from "./SideBar";
 
 const MoviesContainer = () => {
   const [state, dispatch] = useReducer(AppReducer, initialState);
@@ -49,7 +50,7 @@ const MoviesContainer = () => {
       });
     console.log(queryUrl);
   };
-  const { movies, loading, errorMessage, heroImg, title } = state;
+  const { movies, loading, errorMessage, title } = state;
   console.log(movies);
 
   const loadedData =
@@ -63,22 +64,27 @@ const MoviesContainer = () => {
     ) : (
       movies.map(movie => (
         <div key={movie.id}>
-          {/* <HeroImage hero={heroImg} /> */}
-
           <Movie {...movie} />
         </div>
       ))
     );
 
   return (
-    <div className="container">
-      <div className="container-inner">
-        <div className="heo">
+    <div className="Movie-container">
+      <header className="Movie-header">
+        <div className="Movie-header__content">
           <Search search={onSearchQuery} />
+          <FaFilm color={"red"} />
         </div>
-      </div>
-      <h1>{title}</h1>
-      <div className="images-list">{loadedData}</div>
+      </header>
+      <main className="Movie__banner">Banner goes here...</main>
+      <aside className="sidebar">
+        <SideBar />
+      </aside>
+      <main className="Movie__list-items">
+        <h1>{title}</h1>
+        <div className="Movie__list-items-img">{loadedData}</div>
+      </main>
     </div>
   );
 };

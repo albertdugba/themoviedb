@@ -24,7 +24,16 @@ const MovieDetails = props => {
 
   const movieDetails =
     Object.keys(movie).length === 0 ? (
-      <Spinner />
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          marginTop: "20px"
+        }}
+      >
+        <Spinner />
+      </div>
     ) : (
       <div>
         <img
@@ -36,13 +45,8 @@ const MovieDetails = props => {
           <img
             src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
             alt=""
-            style={{
-              width: "50%",
-              maxWidth: "400px",
-              height: "100%"
-            }}
           />
-          <div className="movie-details">
+          <div>
             <h3 style={{ color: "red" }}>{movie.title}</h3>
             <p>{movie.overview}</p>
             <p>Released Date:{movie.release_date}</p>

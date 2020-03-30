@@ -10,7 +10,6 @@ const HeroImage = ({ hero }) => {
   //           key={idx}
   //           src={`https://image.tmdb.org/t/p/original/${h.backdrop_path}`}
   //           alt={h.title}
-  //           style={heroImageStyles}
   //           className="hero-backdrop-img"
   //         />
   //         <p className="hero-text">{h.overview}</p>
@@ -19,11 +18,6 @@ const HeroImage = ({ hero }) => {
   //   });
 
   return <div>Hero Image</div>;
-};
-
-const heroImageStyles = {
-  width: "100%",
-  height: "60vh"
 };
 
 export default HeroImage;

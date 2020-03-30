@@ -22,12 +22,6 @@ const Search = ({ search }) => {
           onChange={event => setQuery(event.target.value)}
         />
       </form>
-
-      <select>
-        <option value="discover">Discover</option>
-        <option value="popular">Discover</option>
-        <option value="tvshows">Tv Shows</option>
-      </select>
     </div>
   );
 };
