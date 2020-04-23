@@ -1,9 +1,13 @@
 import React, { useReducer, useEffect } from "react";
 import axios from "axios";
 
-import Spinner from "./Spinner";
-import { AppReducer, initialState } from "../context/AppReducer";
-import { MOVIE_SEARCH_REQUEST, MOVIE_DETAILS } from "../constants/constants";
+import Spinner from "../Spinner";
+import { AppReducer, initialState } from "../../context/AppReducer";
+import {
+  MOVIE_SEARCH_REQUEST,
+  MOVIE_DETAILS,
+  MOVIE_SEARCH_FAILED,
+} from "../../constants/constants";
 
 const MovieDetails = props => {
   const [state, dispatch] = useReducer(AppReducer, initialState);
@@ -16,11 +20,12 @@ const MovieDetails = props => {
       .then(response => {
         dispatch({ type: MOVIE_DETAILS, payload: response.data });
       })
-      .then(error => console.log(error));
+      .then(error => {
+        dispatch({ type: MOVIE_SEARCH_FAILED, error: error });
+      });
   }, [movieUrl]);
 
   const { movie } = state;
-  console.log(movie);
 
   const movieDetails =
     Object.keys(movie).length === 0 ? (
@@ -29,7 +34,7 @@ const MovieDetails = props => {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          marginTop: "20px"
+          marginTop: "20px",
         }}
       >
         <Spinner />
@@ -57,7 +62,7 @@ const MovieDetails = props => {
             <p>
               Prod.Companies:
               {movie.production_companies.map(p => (
-                <li style={{ display: "inline" }}>{`${p.name} , `}</li>
+                <li style={{ display: "inline" }}>{`${p.name}, `}</li>
               ))}
             </p>
           </div>

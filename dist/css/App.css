@@ -11,33 +11,18 @@ body {
 .Movie-container {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 240px 1fr;
-      grid-template-columns: 240px 1fr;
-  -ms-grid-rows: 70px 1fr 70px;
-      grid-template-rows: 70px 1fr 70px;
-      grid-template-areas: "header sidebar" "main" "sidebar main";
+  -ms-grid-columns: 200px 1fr;
+      grid-template-columns: 200px 1fr;
+  -ms-grid-rows: 50px 1fr 50px;
+      grid-template-rows: 50px 1fr 50px;
+      grid-template-areas: "header header" "main main" "sidenav main";
   height: 100vh; }
   .Movie-container .Movie-header {
     -ms-grid-row: 1;
     -ms-grid-column: 1;
+    -ms-grid-column-span: 2;
     grid-area: header;
-    position: fixed;
-    padding: 1rem;
-    width: 100%;
-    background: blue; }
-    .Movie-container .Movie-header__content {
-      width: 85%;
-      max-width: 1250px;
-      margin: auto;
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-align: center;
-          -ms-flex-align: center;
-              align-items: center;
-      -webkit-box-pack: justify;
-          -ms-flex-pack: justify;
-              justify-content: space-between; }
+    background: blueviolet; }
   .Movie-container .Movie__banner {
     -ms-grid-row: 2;
     -ms-grid-row-span: 2;
@@ -46,21 +31,27 @@ body {
     grid-area: main;
     background: white;
     width: 100%; }
-  .Movie-container .sidebar {
-    -ms-grid-row: 1;
-    -ms-grid-row-span: 3;
+  .Movie-container .Movie-sidenav {
+    -ms-grid-row: 3;
     -ms-grid-column: 1;
-    -ms-grid-column-span: 2;
-    grid-area: sidebar; }
-  .Movie-container .Movie-list__items {
-    -ms-grid-row: 2;
-    -ms-grid-row-span: 2;
-    -ms-grid-column: 1;
-    -ms-grid-column-span: 2;
-    grid-area: main; }
-    .Movie-container .Movie-list__items-img {
-      display: -ms-grid;
-      display: grid;
-      -ms-grid-columns: (minmax(250px, 1fr))[auto-fit];
-          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+    grid-area: sidenav;
+    background: tomato; }
+
+.Move-list__list-items {
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: main; }
+  .Move-list__list-items-img {
+    display: none; }
+
+.Move-list__list-items-img {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(240px, 1fr))[autofit];
+      grid-template-columns: repeat(autofit, minmax(240px, 1fr)); }
+
+img {
+  width: 200px; }
 /*# sourceMappingURL=App.css.map */

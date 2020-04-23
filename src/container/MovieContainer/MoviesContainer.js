@@ -2,17 +2,19 @@ import React, { useEffect, useReducer } from "react";
 import axios from "axios";
 
 import { FaFilm } from "react-icons/fa";
-
-import Movie from "./Movie";
-import Search from "./Search";
-import Spinner from "./Spinner";
-import { AppReducer, initialState } from "../context/AppReducer";
+import Movie from "../../components/Movies/Movie";
+import Search from "../../components/Search/Search";
+import Spinner from "../../components/Spinner";
+import { AppReducer, initialState } from "../../context/AppReducer";
 import {
   MOVIE_SEARCH_REQUEST,
   MOVIE_SEARCH_SUCCESS,
-  MOVIE_SEARCH_FAILED
-} from "../constants/constants";
-import SideBar from "./SideBar";
+  MOVIE_SEARCH_FAILED,
+} from "../../constants/constants";
+import SideBar from "../../components/SideBar";
+
+import classes from "./MovieContainer.module.css";
+import HeroImage from "../../components/HeroImage/HeroImage";
 
 const MoviesContainer = () => {
   const [state, dispatch] = useReducer(AppReducer, initialState);
@@ -25,7 +27,7 @@ const MoviesContainer = () => {
       .then(response => {
         dispatch({
           type: MOVIE_SEARCH_SUCCESS,
-          payload: response.data.results
+          payload: response.data.results,
         });
       })
       .then(error => {
@@ -42,7 +44,7 @@ const MoviesContainer = () => {
       .then(response => {
         dispatch({
           type: MOVIE_SEARCH_SUCCESS,
-          payload: response.data.results
+          payload: response.data.results,
         });
       })
       .then(error => {
@@ -51,7 +53,6 @@ const MoviesContainer = () => {
     console.log(queryUrl);
   };
   const { movies, loading, errorMessage, title } = state;
-  console.log(movies);
 
   const loadedData =
     movies === undefined ||
@@ -62,28 +63,21 @@ const MoviesContainer = () => {
     ) : errorMessage ? (
       <p>{errorMessage}</p>
     ) : (
-      movies.map(movie => (
-        <div key={movie.id}>
-          <Movie {...movie} />
-        </div>
-      ))
+      movies.map(movie => <Movie {...movie} key={movie.id} />)
     );
 
   return (
-    <div className="Movie-container">
-      <header className="Movie-header">
-        <div className="Movie-header__content">
+    <div>
+      <header>
+        <div>
+          <HeroImage hero={state} />
           <Search search={onSearchQuery} />
-          <FaFilm color={"red"} />
         </div>
       </header>
-      <main className="Movie__banner">Banner goes here...</main>
-      <aside className="sidebar">
-        <SideBar />
-      </aside>
-      <main className="Movie__list-items">
+
+      <main className={classes.MovieListContainer}>
         <h1>{title}</h1>
-        <div className="Movie__list-items-img">{loadedData}</div>
+        <div className={classes.MovieList}>{loadedData}</div>
       </main>
     </div>
   );
