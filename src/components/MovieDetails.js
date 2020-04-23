@@ -37,9 +37,8 @@ const MovieDetails = props => {
             src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
             alt=""
             style={{
-              width: "50%",
-              maxWidth: "400px",
-              height: "100%"
+              width: "400px",
+              height: "100%",
             }}
           />
           <div className="movie-details">
