@@ -1,10 +1,8 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
 
-import MoviesContainer from "./components/MoviesContainer";
-import MovieDetails from "./components/MovieDetails";
-
-import "./App.scss";
+import MoviesContainer from "./container/MovieContainer/MoviesContainer";
+import MovieDetails from "./components/MovieDetails/MovieDetails";
 
 const App = () => {
   return (

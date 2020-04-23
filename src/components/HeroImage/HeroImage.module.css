@@ -1,0 +1,70 @@
+/* Desktop Viewport */
+
+@media (min-width: 500px) {
+  .Banner {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+
+  .BannerOverlay {
+    width: 100%;
+    height: auto;
+  }
+
+  .Featured {
+    background: rgba(6, 6, 7, 0.6);
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    margin: auto;
+    top: 0;
+    left: 0;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .FeaturedCard {
+    color: #fff;
+  }
+}
+
+/* Mobile Viewport */
+.Banner {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.BannerOverlay {
+  width: 100%;
+  height: auto;
+}
+
+.Featured {
+  background: rgba(6, 6, 7, 0.6);
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  margin: auto;
+  top: 0;
+  left: 0;
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  justify-content: center;
+}
+
+.FeaturedCard {
+  color: #fff;
+}

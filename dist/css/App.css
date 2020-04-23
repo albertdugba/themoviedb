@@ -1,0 +1,57 @@
+form {
+  width: 100% !important; }
+
+body {
+  background: #161111 !important;
+  font-family: "Anton", sans-serif !important;
+  color: wheat !important;
+  margin: 0;
+  padding: 0; }
+
+.Movie-container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 200px 1fr;
+      grid-template-columns: 200px 1fr;
+  -ms-grid-rows: 50px 1fr 50px;
+      grid-template-rows: 50px 1fr 50px;
+      grid-template-areas: "header header" "main main" "sidenav main";
+  height: 100vh; }
+  .Movie-container .Movie-header {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 2;
+    grid-area: header;
+    background: blueviolet; }
+  .Movie-container .Movie__banner {
+    -ms-grid-row: 2;
+    -ms-grid-row-span: 2;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 2;
+    grid-area: main;
+    background: white;
+    width: 100%; }
+  .Movie-container .Movie-sidenav {
+    -ms-grid-row: 3;
+    -ms-grid-column: 1;
+    grid-area: sidenav;
+    background: tomato; }
+
+.Move-list__list-items {
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: main; }
+  .Move-list__list-items-img {
+    display: none; }
+
+.Move-list__list-items-img {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(240px, 1fr))[autofit];
+      grid-template-columns: repeat(autofit, minmax(240px, 1fr)); }
+
+img {
+  width: 200px; }
+/*# sourceMappingURL=App.css.map */

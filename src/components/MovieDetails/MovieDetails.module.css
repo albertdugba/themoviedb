@@ -1,0 +1,29 @@
+@media (min-width: 745px) {
+  .MovieSecondary {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    bottom: 50px;
+    color: white;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-gap: 3rem;
+  }
+
+  .DetailsContainer {
+    position: relative;
+    z-index: -1;
+  }
+}
+
+/* .MovieSecondary {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.7);
+  top: 0;
+  left: 0;
+  bottom: 0px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
