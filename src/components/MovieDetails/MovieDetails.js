@@ -9,6 +9,8 @@ import {
   MOVIE_SEARCH_FAILED,
 } from "../../constants/constants";
 
+import classes from "./MovieDetails.module.css";
+
 const MovieDetails = props => {
   const [state, dispatch] = useReducer(AppReducer, initialState);
 
@@ -40,15 +42,15 @@ const MovieDetails = props => {
         <Spinner />
       </div>
     ) : (
-      <div>
+      <div className={classes.DetailsContainer}>
         <img
           src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
           alt={movie.title}
-          className="img-details-bg"
+          style={{ width: "100%", height: "auto" }}
         />
-        <div className="image-backdrop">
+        {/* <div className={classes.MovieSecondary}>
           <img
-            src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+            src={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`}
             alt=""
           />
           <div>
@@ -66,7 +68,7 @@ const MovieDetails = props => {
               ))}
             </p>
           </div>
-        </div>
+        </div> */}
       </div>
     );
 

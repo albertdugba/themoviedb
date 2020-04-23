@@ -1,7 +1,6 @@
 import React, { useEffect, useReducer } from "react";
 import axios from "axios";
 
-import { FaFilm } from "react-icons/fa";
 import Movie from "../../components/Movies/Movie";
 import Search from "../../components/Search/Search";
 import Spinner from "../../components/Spinner";
