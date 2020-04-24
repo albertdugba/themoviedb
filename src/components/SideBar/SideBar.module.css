@@ -1,0 +1,8 @@
+.SideBar {
+  /* position: fixed; */
+  top: 20%;
+  width: 100%;
+  height: 10vh;
+  background: red;
+  opacity: 0.4;
+}

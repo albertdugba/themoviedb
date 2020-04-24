@@ -3,17 +3,17 @@ import axios from "axios";
 
 import Movie from "../../components/Movies/Movie";
 import Search from "../../components/Search/Search";
-import Spinner from "../../components/Spinner";
+import Spinner from "../../components/Spinner/Spinner";
 import { AppReducer, initialState } from "../../context/AppReducer";
 import {
   MOVIE_SEARCH_REQUEST,
   MOVIE_SEARCH_SUCCESS,
   MOVIE_SEARCH_FAILED,
 } from "../../constants/constants";
-import SideBar from "../../components/SideBar";
 
 import classes from "./MovieContainer.module.css";
 import HeroImage from "../../components/HeroImage/HeroImage";
+import SideBar from "../../components/SideBar/SideBar";
 
 const MoviesContainer = () => {
   const [state, dispatch] = useReducer(AppReducer, initialState);
@@ -75,6 +75,7 @@ const MoviesContainer = () => {
       </header>
 
       <main className={classes.MovieListContainer}>
+        <SideBar />
         <h1 style={{ textAlign: "center" }}>{title}</h1>
         <div className={classes.MovieList}>{loadedData}</div>
       </main>

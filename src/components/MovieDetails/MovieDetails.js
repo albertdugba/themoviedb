@@ -1,7 +1,7 @@
 import React, { useReducer, useEffect } from "react";
 import axios from "axios";
 
-import Spinner from "../Spinner";
+import Spinner from "../Spinner/Spinner";
 import { AppReducer, initialState } from "../../context/AppReducer";
 import {
   MOVIE_SEARCH_REQUEST,
@@ -12,11 +12,12 @@ import {
 
 import classes from "./MovieDetails.module.css";
 import Casts from "../../constants/Casts/Casts";
+import Trailer from "../Trailer/Trailer";
 
 const MovieDetails = props => {
   const [state, dispatch] = useReducer(AppReducer, initialState);
 
-  const movieUrl = `https://api.themoviedb.org/3/movie/${props.match.params.movieId}?api_key=4be3dca1c64c2fb77f30770cd942a1e2&language=en-US`;
+  const movieUrl = `https://api.themoviedb.org/3/movie/${props.match.params.movieId}?api_key=4be3dca1c64c2fb77f30770cd942a1e2&append_to_response=videos,images`;
   useEffect(() => {
     dispatch({ type: MOVIE_SEARCH_REQUEST });
     axios
@@ -41,8 +42,7 @@ const MovieDetails = props => {
       });
   }, [props.match.params.movieId]);
 
-  const { movie, casts } = state;
-  console.log(casts);
+  const { movie, casts, trailer } = state;
 
   const movieDetails =
     Object.keys(movie).length === 0 ? (
@@ -100,9 +100,15 @@ const MovieDetails = props => {
             ))}
           </p>
         </div>
+        <Trailer trailer={trailer} />
 
         {/* Movie Casts */}
-        <Casts casts={casts} />
+        <div>
+          <h1 style={{ color: "red", maxWidth: "1040px", margin: "20px auto" }}>
+            Casts
+          </h1>
+          <Casts casts={casts} />
+        </div>
       </div>
     );
 

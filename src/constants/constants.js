@@ -4,3 +4,4 @@ export const MOVIE_DETAILS = "MOVIE_DETAILS";
 export const MOVIE_SEARCH_FAILED = "MOVIE_SEARCH_FAILED";
 
 export const MOVIE_CASTS = "MOVIE_CASTS";
+export const MOVIE_TRAILER = "MOVIE_TRAILER";

@@ -1,15 +1,14 @@
 import React from "react";
 import classes from "./Casts.module.css";
-import Spinner from "../../components/Spinner";
+import Spinner from "../../components/Spinner/Spinner";
 
 const Casts = ({ casts }) => {
-  console.log("casts", casts);
   const loadedCasts =
     casts.length === 0 ? (
       <Spinner />
     ) : (
       casts.map(cast => (
-        <div className={classes.Actor}>
+        <div className={classes.Actor} key={cast.id}>
           <img
             src={`https://image.tmdb.org/t/p/original/${cast.profile_path}`}
             alt={cast.character}

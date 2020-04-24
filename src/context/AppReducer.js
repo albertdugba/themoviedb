@@ -8,6 +8,7 @@ import {
 
 export const initialState = {
   movies: [],
+  trailer: null,
   heroImg: null,
   movie: {},
   casts: [],
@@ -45,6 +46,7 @@ export const AppReducer = (state, action) => {
         ...state,
         loading: false,
         movie: action.payload,
+        trailer: action.payload,
         errorMessage: null,
       };
 

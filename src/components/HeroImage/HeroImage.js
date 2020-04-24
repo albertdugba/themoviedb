@@ -1,5 +1,5 @@
 import React from "react";
-import Spinner from "../Spinner";
+import Spinner from "../Spinner/Spinner";
 
 import classes from "./HeroImage.module.css";
 
@@ -20,7 +20,7 @@ const HeroImage = ({ hero }) => {
         </div>
         <div className={classes.Featured}>
           <div className={classes.FeaturedCard}>
-            <h3>{heroImg.title}</h3>
+            <h1>{heroImg.title}</h1>
             <p>{heroImg.overview}</p>
           </div>
         </div>
