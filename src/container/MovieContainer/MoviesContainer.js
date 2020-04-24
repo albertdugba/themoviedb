@@ -75,7 +75,7 @@ const MoviesContainer = () => {
       </header>
 
       <main className={classes.MovieListContainer}>
-        <h1>{title}</h1>
+        <h1 style={{ textAlign: "center" }}>{title}</h1>
         <div className={classes.MovieList}>{loadedData}</div>
       </main>
     </div>

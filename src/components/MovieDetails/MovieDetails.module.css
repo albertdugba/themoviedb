@@ -1,29 +1,21 @@
-@media (min-width: 745px) {
-  .MovieSecondary {
-    position: absolute;
-    top: 50px;
-    left: 0;
-    bottom: 50px;
-    color: white;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    grid-gap: 3rem;
+@media (min-width: 450px) {
+  .DetailsCard {
+    width: 900px;
+    margin: 20px auto;
   }
 
-  .DetailsContainer {
-    position: relative;
-    z-index: -1;
+  .DetailsCard p {
+    border-bottom: 1.2px solid #eee;
+    padding: 10px;
   }
 }
 
-/* .MovieSecondary {
-  position: absolute;
-  background: rgba(0, 0, 0, 0.7);
-  top: 0;
-  left: 0;
-  bottom: 0px;
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */
+.DetailsCard p {
+  border-bottom: 1.2px solid #eee;
+  padding: 10px;
+}
+
+.DetailsCard h1 {
+  font-size: 1.25rem;
+  margin-left: 10px;
+}

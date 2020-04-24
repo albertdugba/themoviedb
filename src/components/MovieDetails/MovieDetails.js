@@ -7,9 +7,12 @@ import {
   MOVIE_SEARCH_REQUEST,
   MOVIE_DETAILS,
   MOVIE_SEARCH_FAILED,
+  MOVIE_SEARCH_SUCCESS,
+  MOVIE_CASTS,
 } from "../../constants/constants";
 
 import classes from "./MovieDetails.module.css";
+import Casts from "../../constants/Casts/Casts";
 
 const MovieDetails = props => {
   const [state, dispatch] = useReducer(AppReducer, initialState);
@@ -27,7 +30,25 @@ const MovieDetails = props => {
       });
   }, [movieUrl]);
 
-  const { movie } = state;
+  useEffect(() => {
+    dispatch({ type: MOVIE_SEARCH_REQUEST });
+    axios
+      .get(
+        `
+    https://api.themoviedb.org/3/movie/${props.match.params.movieId}/credits?api_key=4be3dca1c64c2fb77f30770cd942a1e2`,
+      )
+      .then(response => {
+        // console.log(response.data.cast);
+        dispatch({ type: MOVIE_CASTS, payload: response.data.cast });
+      });
+  }, []);
+
+  const { movie, casts } = state;
+  console.log(casts);
+
+  // const casts =
+  //   movies.length === 0 ? <Spinner /> : movies.map(cast => console.log(cast));
+  // console.log(casts);
 
   const movieDetails =
     Object.keys(movie).length === 0 ? (
@@ -48,34 +69,46 @@ const MovieDetails = props => {
           alt={movie.title}
           style={{ width: "100%", height: "auto" }}
         />
-        {/* <div className={classes.MovieSecondary}>
-          <img
-            src={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`}
-            alt=""
-<<<<<<< HEAD:src/components/MovieDetails.js
-            style={{
-              width: "400px",
-              height: "100%",
-            }}
-=======
->>>>>>> movie-cat-feature:src/components/MovieDetails/MovieDetails.js
-          />
-          <div>
-            <h3 style={{ color: "red" }}>{movie.title}</h3>
-            <p>{movie.overview}</p>
-            <p>Released Date:{movie.release_date}</p>
-            <p>Popularity:{movie.popularity}</p>
-            <p>Budget:{movie.budget}</p>
-            <p>HomePage:{movie.homepage}</p>
-            <p>Status:{movie.status}</p>
-            <p>
-              Prod.Companies:
-              {movie.production_companies.map(p => (
-                <li style={{ display: "inline" }}>{`${p.name}, `}</li>
-              ))}
-            </p>
-          </div>
-        </div> */}
+
+        <div className={classes.DetailsCard}>
+          <h1 style={{ color: "red" }}>{movie.title}</h1>
+          <p>{movie.overview}</p>
+          <p>Released Date:{movie.release_date}</p>
+          <p>Popularity:{movie.popularity}</p>
+          <p>Budget:${movie.budget.toFixed(2)}</p>
+          <p>Revenue:${movie.revenue.toFixed(2)}</p>
+          <p>Status:{movie.status}</p>
+          <p>
+            Prod.Companies:
+            {movie.production_companies.map(p => (
+              <li key={p.id} style={{ display: "inline" }}>{`${p.name}, `}</li>
+            ))}
+          </p>
+
+          <p>
+            Genres:
+            {movie.genres.map(gn => (
+              <li
+                key={gn.id}
+                style={{
+                  display: "inline",
+                  margin: "4px",
+                  padding: "5px",
+                  color: "white",
+                  background: "red",
+                  borderRadius: "10px",
+                  height: "20px",
+                  fontSize: "10px",
+                }}
+              >
+                {gn.name}
+              </li>
+            ))}
+          </p>
+        </div>
+
+        {/* Movie Casts */}
+        <Casts casts={casts} />
       </div>
     );
 
