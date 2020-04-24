@@ -33,12 +33,16 @@
 
   .FeaturedCard {
     color: #fff;
+    background: black;
+    padding: 1rem;
+    opacity: 0.5;
+    text-align: left;
   }
 }
 
 /* Mobile Viewport */
 .Banner {
-  height: 100%;
+  height: auto;
   width: 100%;
   position: relative;
   top: 0;

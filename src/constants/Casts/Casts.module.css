@@ -1,7 +1,10 @@
 @media (max-width: 500px) {
   .Container {
-    max-width: 900px;
-    margin: auto 20px;
+    justify-content: center;
+  }
+
+  .Actor {
+    justify-content: center;
   }
 }
 
@@ -45,5 +48,6 @@
   margin: auto;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  grid-gap: 1.5rem;
+  grid-gap: 1rem;
+  justify-self: center;
 }
