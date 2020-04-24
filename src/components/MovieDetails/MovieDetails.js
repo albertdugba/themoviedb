@@ -7,7 +7,6 @@ import {
   MOVIE_SEARCH_REQUEST,
   MOVIE_DETAILS,
   MOVIE_SEARCH_FAILED,
-  MOVIE_SEARCH_SUCCESS,
   MOVIE_CASTS,
 } from "../../constants/constants";
 
@@ -38,17 +37,12 @@ const MovieDetails = props => {
     https://api.themoviedb.org/3/movie/${props.match.params.movieId}/credits?api_key=4be3dca1c64c2fb77f30770cd942a1e2`,
       )
       .then(response => {
-        // console.log(response.data.cast);
         dispatch({ type: MOVIE_CASTS, payload: response.data.cast });
       });
-  }, []);
+  }, [props.match.params.movieId]);
 
   const { movie, casts } = state;
   console.log(casts);
-
-  // const casts =
-  //   movies.length === 0 ? <Spinner /> : movies.map(cast => console.log(cast));
-  // console.log(casts);
 
   const movieDetails =
     Object.keys(movie).length === 0 ? (

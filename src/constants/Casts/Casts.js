@@ -9,22 +9,22 @@ const Casts = ({ casts }) => {
       <Spinner />
     ) : (
       casts.map(cast => (
-        <div className={classes.Row}>
-          <div className={classes.Column}>
-            <div className={classes.Card}>
-              <img
-                src={`https://image.tmdb.org/t/p/original/${cast.profile_path}`}
-                alt={cast.character}
-                style={{ width: "150px", height: "auto", paddingTop: "10px" }}
-              />
-              <p>{cast.name}</p>
-              <p>{cast.character}</p>
-            </div>
-          </div>
+        <div className={classes.Actor}>
+          <img
+            src={`https://image.tmdb.org/t/p/original/${cast.profile_path}`}
+            alt={cast.character}
+            style={{
+              width: "90%",
+              height: "auto",
+              //   paddingTop: "10px",
+            }}
+          />
+          <p className={classes.Name}>{cast.name}</p>
+          <p className={classes.Character}>as {cast.character}</p>
         </div>
       ))
     );
-  return <div>{loadedCasts}</div>;
+  return <div className={classes.Container}>{loadedCasts}</div>;
 };
 
 export default Casts;
