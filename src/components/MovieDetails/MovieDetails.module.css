@@ -10,6 +10,13 @@
   }
 }
 
+@media (max-width: 500px) {
+  .DetailsCard {
+    width: 475;
+    margin: 20px auto;
+  }
+}
+
 .DetailsCard p {
   border-bottom: 1.2px solid #eee;
   padding: 10px;

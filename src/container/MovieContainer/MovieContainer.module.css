@@ -1,12 +1,17 @@
-.MovieList {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  row-gap: 1.3rem;
-  column-gap: 1.3rem;
-  padding: 1rem;
-}
+@media (min-width: 50px) {
+  .MovieList {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 2fr));
+    row-gap: 1.3rem;
+    column-gap: 0.3rem;
+    padding: 0.5rem;
+    align-items: center !important;
+    justify-content: center !important;
+  }
 
-.MovieListContainer {
-  max-width: 1040px;
-  margin: 30px auto;
+  .MovieListContainer {
+    width: 90%;
+    max-width: 1040px;
+    margin: 30px auto;
+  }
 }

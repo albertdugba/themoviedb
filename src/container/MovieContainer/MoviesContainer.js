@@ -13,7 +13,6 @@ import {
 
 import classes from "./MovieContainer.module.css";
 import HeroImage from "../../components/HeroImage/HeroImage";
-import SideBar from "../../components/SideBar/SideBar";
 
 const MoviesContainer = () => {
   const [state, dispatch] = useReducer(AppReducer, initialState);
@@ -75,7 +74,6 @@ const MoviesContainer = () => {
       </header>
 
       <main className={classes.MovieListContainer}>
-        <SideBar />
         <h1 style={{ textAlign: "center" }}>{title}</h1>
         <div className={classes.MovieList}>{loadedData}</div>
       </main>

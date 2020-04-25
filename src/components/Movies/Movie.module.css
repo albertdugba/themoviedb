@@ -1,4 +1,12 @@
 .ImageContainer img {
   width: 100%;
   height: auto;
+  border-radius: 4.5%;
+  align-self: center;
+  justify-self: center;
+}
+
+.ImageContainer {
+  align-self: center;
+  justify-self: center;
 }

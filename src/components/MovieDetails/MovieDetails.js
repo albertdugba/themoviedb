@@ -1,4 +1,4 @@
-import React, { useReducer, useEffect } from "react";
+import React, { useState, useReducer, useEffect } from "react";
 import axios from "axios";
 
 import Spinner from "../Spinner/Spinner";
@@ -18,6 +18,7 @@ const MovieDetails = props => {
   const [state, dispatch] = useReducer(AppReducer, initialState);
 
   const movieUrl = `https://api.themoviedb.org/3/movie/${props.match.params.movieId}?api_key=4be3dca1c64c2fb77f30770cd942a1e2&append_to_response=videos,images`;
+
   useEffect(() => {
     dispatch({ type: MOVIE_SEARCH_REQUEST });
     axios
@@ -40,7 +41,7 @@ const MovieDetails = props => {
       .then(response => {
         dispatch({ type: MOVIE_CASTS, payload: response.data.cast });
       });
-  }, [props.match.params.movieId]);
+  }, []);
 
   const { movie, casts, trailer } = state;
 
@@ -99,15 +100,35 @@ const MovieDetails = props => {
               </li>
             ))}
           </p>
-        </div>
-        <Trailer trailer={trailer} />
 
-        {/* Movie Casts */}
-        <div>
-          <h1 style={{ color: "red", maxWidth: "1040px", margin: "20px auto" }}>
-            Casts
-          </h1>
-          <Casts casts={casts} />
+          <div>
+            <h1
+              style={{
+                color: "red",
+                maxWidth: "1040px",
+                margin: "20px auto",
+                textAlign: "center",
+              }}
+            >
+              Official Trailer(s)
+            </h1>
+            <Trailer trailer={trailer} />
+          </div>
+
+          {/* Movie Casts */}
+          <div>
+            <h1
+              style={{
+                color: "red",
+                maxWidth: "1040px",
+                margin: "20px auto",
+                textAlign: "center",
+              }}
+            >
+              Casts
+            </h1>
+            <Casts casts={casts} />
+          </div>
         </div>
       </div>
     );

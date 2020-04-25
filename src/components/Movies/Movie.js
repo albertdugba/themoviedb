@@ -15,11 +15,9 @@ const Movie = ({ id, title, backdrop, poster_path }) => {
           }`}
           alt={title}
           className="movie-img"
+          style={{ width: "60%" }}
         />
       </Link>
-      <div className="middle">
-        <p className="image-text">{title}</p>
-      </div>
     </div>
   );
 };
