@@ -1,7 +1,28 @@
 import React from "react";
+import { Link, withRouter } from "react-router-dom";
 
-const Cast = () => {
-  return <div>sadf</div>;
+import classes from "./Cast.module.css";
+import noAvatar from "../../img/no_image.jpg";
+
+const Cast = props => {
+  const { profile_path, character, name, id } = props;
+  console.log(props.location.pathname);
+  return (
+    <Link to={`/movie/cast/${id}`}>
+      <div className={classes.Actor}>
+        <img
+          src={
+            profile_path
+              ? `https://image.tmdb.org/t/p/original/${profile_path}`
+              : noAvatar
+          }
+          alt={character}
+        />
+        <p className={classes.Name}>{name}</p>
+        <p className={classes.Character}>as {character}</p>
+      </div>
+    </Link>
+  );
 };
 
-export default Cast;
+export default withRouter(Cast);

@@ -1,6 +1,7 @@
-@media (min-width: 450px) {
+@media (min-width: 769px) {
   .DetailsCard {
-    width: 900px;
+    width: 100%;
+    max-width: 75%;
     margin: 20px auto;
   }
 
@@ -10,10 +11,9 @@
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 768px) {
   .DetailsCard {
-    width: 475;
-    margin: 20px auto;
+    width: 100%;
   }
 }
 

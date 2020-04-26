@@ -4,12 +4,14 @@ import {
   MOVIE_SEARCH_FAILED,
   MOVIE_DETAILS,
   MOVIE_CASTS,
+  SEARCH_NOT_FOUND,
 } from "../constants/constants";
 
 export const initialState = {
   movies: [],
   trailer: null,
   heroImg: null,
+  cast: {},
   movie: {},
   casts: [],
   title: "Trending Movies",
@@ -28,6 +30,7 @@ export const AppReducer = (state, action) => {
         movies: action.payload,
         heroImg: action.payload[7],
         loading: false,
+        title: "Searched Results",
         errorMessage: null,
       };
 
@@ -38,17 +41,21 @@ export const AppReducer = (state, action) => {
         casts: action.payload,
       };
 
-    case MOVIE_SEARCH_FAILED:
-      return { ...state, loading: false, errorMessage: null };
-
     case MOVIE_DETAILS:
       return {
         ...state,
         loading: false,
         movie: action.payload,
         trailer: action.payload,
+        cast: action.payload,
         errorMessage: null,
       };
+
+    case SEARCH_NOT_FOUND:
+      return { ...state, loading: false };
+
+    case MOVIE_SEARCH_FAILED:
+      return { ...state, loading: false, errorMessage: null };
 
     default:
       return state;

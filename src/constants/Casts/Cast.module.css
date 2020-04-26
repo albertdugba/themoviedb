@@ -1,0 +1,41 @@
+.Actor {
+  width: 200px;
+  height: 300px auto;
+  min-height: 15px;
+  background: white;
+  box-shadow: 0 4px 8px 0px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+  padding: 1.2rem;
+  text-align: center;
+}
+
+.Actor img {
+  display: block;
+  width: 80%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+  margin: 0 auto;
+}
+
+.Actor .Name {
+  display: block;
+  font-size: 22px;
+  color: red;
+  box-sizing: border-box;
+  margin: 20px 0 0 0;
+  text-align: left;
+}
+
+.Actor .Character {
+  display: block;
+  font-size: 18px;
+  color: #3a3434;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+a {
+  text-decoration: none;
+  display: block;
+}

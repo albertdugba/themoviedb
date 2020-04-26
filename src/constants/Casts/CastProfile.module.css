@@ -1,0 +1,15 @@
+.ProfileContainer {
+  max-width: 950px;
+  margin: auto;
+  min-height: 30px;
+  padding: 17px;
+  /* display: flex; */
+}
+
+.ProfileContainer .ProfileImage img {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px 0px rgba(0, 0, 0, 0.25);
+}

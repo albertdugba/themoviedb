@@ -2,6 +2,7 @@ import React from "react";
 import Spinner from "../Spinner/Spinner";
 
 import classes from "./HeroImage.module.css";
+import defaultBanner from "../../img/defaultBanner.png";
 
 const HeroImage = ({ hero }) => {
   const { heroImg } = hero;
@@ -13,7 +14,11 @@ const HeroImage = ({ hero }) => {
       <div className={classes.Banner}>
         <div>
           <img
-            src={`https://image.tmdb.org/t/p/original/${heroImg.backdrop_path}`}
+            src={
+              heroImg.backdrop_path
+                ? `https://image.tmdb.org/t/p/original/${heroImg.backdrop_path}`
+                : defaultBanner
+            }
             alt={heroImg.title}
             className={classes.BannerOverlay}
           />

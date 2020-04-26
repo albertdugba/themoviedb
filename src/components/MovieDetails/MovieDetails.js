@@ -1,18 +1,19 @@
-import React, { useState, useReducer, useEffect } from "react";
+import React, { useReducer, useEffect } from "react";
 import axios from "axios";
-
-import Spinner from "../Spinner/Spinner";
 import { AppReducer, initialState } from "../../context/AppReducer";
+
+import classes from "./MovieDetails.module.css";
+import Spinner from "../Spinner/Spinner";
+import Casts from "../../constants/Casts/Casts";
+import Trailer from "../Trailer/Trailer";
+import defaultBanner from "../../img/defaultBanner.png";
+
 import {
   MOVIE_SEARCH_REQUEST,
   MOVIE_DETAILS,
   MOVIE_SEARCH_FAILED,
   MOVIE_CASTS,
 } from "../../constants/constants";
-
-import classes from "./MovieDetails.module.css";
-import Casts from "../../constants/Casts/Casts";
-import Trailer from "../Trailer/Trailer";
 
 const MovieDetails = props => {
   const [state, dispatch] = useReducer(AppReducer, initialState);
@@ -41,7 +42,7 @@ const MovieDetails = props => {
       .then(response => {
         dispatch({ type: MOVIE_CASTS, payload: response.data.cast });
       });
-  }, []);
+  }, [props]);
 
   const { movie, casts, trailer } = state;
 
@@ -60,7 +61,11 @@ const MovieDetails = props => {
     ) : (
       <div className={classes.DetailsContainer}>
         <img
-          src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
+          src={
+            movie.backdrop_path
+              ? `https://image.tmdb.org/t/p/original/${movie.backdrop_path}`
+              : defaultBanner
+          }
           alt={movie.title}
           style={{ width: "100%", height: "auto" }}
         />

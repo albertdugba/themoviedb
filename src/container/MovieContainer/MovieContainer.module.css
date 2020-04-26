@@ -10,8 +10,10 @@
   }
 
   .MovieListContainer {
-    width: 90%;
-    max-width: 1040px;
-    margin: 30px auto;
+    width: 100%;
+    max-width: 65rem;
+    margin: 20px auto;
+    padding: 1.2rem;
+    justify-items: center;
   }
 }

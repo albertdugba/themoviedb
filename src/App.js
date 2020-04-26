@@ -3,6 +3,7 @@ import { Route, Switch } from "react-router-dom";
 
 import MoviesContainer from "./container/MovieContainer/MoviesContainer";
 import MovieDetails from "./components/MovieDetails/MovieDetails";
+import CastProfile from "./constants/Casts/CastProfile";
 
 const App = () => {
   return (
@@ -10,6 +11,7 @@ const App = () => {
       <Switch>
         <Route exact path="/" component={MoviesContainer} />
         <Route exact path="/movie/title/:movieId" component={MovieDetails} />
+        <Route exact path="/movie/cast/:castId" component={CastProfile} />
       </Switch>
     </>
   );

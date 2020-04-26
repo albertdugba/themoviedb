@@ -9,6 +9,7 @@ import {
   MOVIE_SEARCH_REQUEST,
   MOVIE_SEARCH_SUCCESS,
   MOVIE_SEARCH_FAILED,
+  SEARCH_NOT_FOUND,
 } from "../../constants/constants";
 
 import classes from "./MovieContainer.module.css";
@@ -70,6 +71,12 @@ const MoviesContainer = () => {
         <div>
           <HeroImage hero={state} />
           <Search search={onSearchQuery} />
+          {!loading && movies.length === 0 && (
+            <h4 style={{ textAlign: "center" }}>
+              Oops!, seems like there is no more by that <strong>name</strong>.
+              Please try another <strong>term</strong>{" "}
+            </h4>
+          )}
         </div>
       </header>
 
