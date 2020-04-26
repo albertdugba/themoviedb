@@ -2,11 +2,10 @@ import React from "react";
 
 import classes from "./MovieDetails.module.css";
 import Spinner from "../Spinner/Spinner";
-import Casts from "../Actors/Cast/Cast";
 import Trailer from "../Trailer/Trailer";
 import defaultBanner from "../../img/defaultBanner.png";
 
-const MovieDetail = ({ movie, trailer, casts }) => {
+const MovieDetail = ({ movie, trailer }) => {
   const movieDetails =
     Object.keys(movie).length === 0 ? (
       <div
@@ -28,8 +27,13 @@ const MovieDetail = ({ movie, trailer, casts }) => {
               : defaultBanner
           }
           alt={movie.title}
-          style={{ width: "100%", height: "auto" }}
+          style={{
+            width: "100%",
+            height: "auto",
+            boxShadow: "inset 30px 1rem #000",
+          }}
         />
+        {/* I want this image to be stacked on the backdrop together with the text below */}
 
         <div className={classes.DetailsCard}>
           Go Back
@@ -91,7 +95,6 @@ const MovieDetail = ({ movie, trailer, casts }) => {
             >
               Casts
             </h1>
-            <Casts casts={casts} />
           </div>
         </div>
       </div>
