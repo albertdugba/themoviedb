@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useReducer } from "react";
 import axios from "axios";
-import { AppReducer, initialState } from "../../context/AppReducer";
-import Spinner from "../../components/Spinner/Spinner";
+import { AppReducer, initialState } from "../../../context/AppReducer";
+import Spinner from "../../Spinner/Spinner";
 import {
   MOVIE_SEARCH_REQUEST,
   MOVIE_SEARCH_FAILED,
   MOVIE_DETAILS,
-} from "../constants";
+} from "../../../constants/constants";
 
 import classes from "./CastProfile.module.css";
 
@@ -47,8 +47,6 @@ const CastProfile = props => {
     return transformedItem.slice(0, MAX_ITEMS);
   };
 
-  console.log(String(cast.biography).split());
-
   let loadedCastProfile =
     cast === undefined || cast === null ? (
       <Spinner />
@@ -57,7 +55,7 @@ const CastProfile = props => {
         <div className={classes.ProfileImage}>
           <img
             src={` https://image.tmdb.org/t/p/w500/${cast.profile_path}`}
-            alt=""
+            alt={cast.name}
           />
         </div>
         <div className={classes.ProfileDetails}>
@@ -71,9 +69,17 @@ const CastProfile = props => {
             </div>
           ))}
 
-          <p>Known for :{cast.known_for_department}</p>
-          <p>Birthday:{cast.birthday}</p>
-          <p>Place of Birth:{cast.place_of_birth}</p>
+          <p>
+            Known for :
+            {cast.known_for_department
+              ? cast.known_for_department
+              : "Not Available"}
+          </p>
+          <p>Birthday:{cast.birthday ? cast.birthday : "Not Available"}</p>
+          <p>
+            Place of Birth:
+            {cast.place_of_birth ? cast.place_of_birth : "Not Available"}
+          </p>
         </div>
       </div>
     );

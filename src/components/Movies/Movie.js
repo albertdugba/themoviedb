@@ -15,7 +15,7 @@ const Movie = ({ id, title, backdrop, poster_path }) => {
           }`}
           alt={title}
           className="movie-img"
-          style={{ width: "60%" }}
+          style={{ width: "100%", margin: "auto" }}
         />
       </Link>
     </div>

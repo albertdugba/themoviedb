@@ -1,8 +1,8 @@
 import React from "react";
 import classes from "./Casts.module.css";
-import Spinner from "../../components/Spinner/Spinner";
+import Spinner from "../../Spinner/Spinner";
 
-import Cast from "./Cast";
+import Cast from "../Cast/Cast";
 
 const Casts = props => {
   const { casts } = props;
@@ -11,7 +11,7 @@ const Casts = props => {
     casts.length === 0 ? (
       <Spinner />
     ) : (
-      props.casts.map(cast => <Cast key={cast.cast_id} {...cast} />)
+      casts.map(cast => <Cast key={cast.credit_id} {...cast} />)
     );
 
   return <div className={classes.Container}>{loadedCasts}</div>;

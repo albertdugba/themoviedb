@@ -26,7 +26,6 @@ const Trailer = ({ trailer }) => {
       })
     );
 
-  console.log(videos);
   return <div className={classes.Trailer}>{movieTrailer}</div>;
 };
 

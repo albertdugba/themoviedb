@@ -30,7 +30,6 @@ export const AppReducer = (state, action) => {
         movies: action.payload,
         heroImg: action.payload[7],
         loading: false,
-        title: "Searched Results",
         errorMessage: null,
       };
 

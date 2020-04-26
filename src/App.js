@@ -3,7 +3,7 @@ import { Route, Switch } from "react-router-dom";
 
 import MoviesContainer from "./container/MovieContainer/MoviesContainer";
 import MovieDetails from "./components/MovieDetails/MovieDetails";
-import CastProfile from "./constants/Casts/CastProfile";
+import CastProfile from "./components/Actors/CastProfile/CastProfile";
 
 const App = () => {
   return (

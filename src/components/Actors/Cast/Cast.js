@@ -2,13 +2,11 @@ import React from "react";
 import { Link, withRouter } from "react-router-dom";
 
 import classes from "./Cast.module.css";
-import noAvatar from "../../img/no_image.jpg";
+import noAvatar from "../../../img/no_image.jpg";
 
-const Cast = props => {
-  const { profile_path, character, name, id } = props;
-  console.log(props.location.pathname);
+const Cast = ({ profile_path, character, name, cast_id }) => {
   return (
-    <Link to={`/movie/cast/${id}`}>
+    <Link to={`/movie/cast/${cast_id}`}>
       <div className={classes.Actor}>
         <img
           src={

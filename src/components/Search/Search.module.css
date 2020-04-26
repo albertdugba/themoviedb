@@ -11,9 +11,13 @@ form {
   border-radius: 10px;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 595px) {
   form {
-    max-width: 200px;
+    max-width: 310px;
     margin: 20px auto;
+  }
+
+  .Input {
+    width: 100%;
   }
 }

@@ -1,52 +1,12 @@
-import React, { useReducer, useEffect } from "react";
-import axios from "axios";
-
-import { AppReducer, initialState } from "../../context/AppReducer";
+import React from "react";
 
 import classes from "./MovieDetails.module.css";
 import Spinner from "../Spinner/Spinner";
-import Casts from "../Actors/Casts/Casts";
+import Casts from "../Actors/Cast/Cast";
 import Trailer from "../Trailer/Trailer";
 import defaultBanner from "../../img/defaultBanner.png";
 
-import {
-  MOVIE_SEARCH_REQUEST,
-  MOVIE_DETAILS,
-  MOVIE_SEARCH_FAILED,
-  MOVIE_CASTS,
-} from "../../constants/constants";
-
-const MovieDetails = props => {
-  const [state, dispatch] = useReducer(AppReducer, initialState);
-
-  const movieUrl = `https://api.themoviedb.org/3/movie/${props.match.params.movieId}?api_key=4be3dca1c64c2fb77f30770cd942a1e2&append_to_response=videos,images`;
-
-  useEffect(() => {
-    dispatch({ type: MOVIE_SEARCH_REQUEST });
-    axios
-      .get(movieUrl)
-      .then(response => {
-        dispatch({ type: MOVIE_DETAILS, payload: response.data });
-      })
-      .then(error => {
-        dispatch({ type: MOVIE_SEARCH_FAILED, error: error });
-      });
-  }, [movieUrl]);
-
-  useEffect(() => {
-    dispatch({ type: MOVIE_SEARCH_REQUEST });
-    axios
-      .get(
-        `
-    https://api.themoviedb.org/3/movie/${props.match.params.movieId}/credits?api_key=4be3dca1c64c2fb77f30770cd942a1e2`,
-      )
-      .then(response => {
-        dispatch({ type: MOVIE_CASTS, payload: response.data.cast });
-      });
-  }, [props]);
-
-  const { movie, casts, trailer } = state;
-
+const MovieDetail = ({ movie, trailer, casts }) => {
   const movieDetails =
     Object.keys(movie).length === 0 ? (
       <div
@@ -72,6 +32,7 @@ const MovieDetails = props => {
         />
 
         <div className={classes.DetailsCard}>
+          Go Back
           <h1 style={{ color: "red" }}>{movie.title}</h1>
           <p>{movie.overview}</p>
           <p>Released Date:{movie.release_date}</p>
@@ -139,4 +100,4 @@ const MovieDetails = props => {
   return <div>{movieDetails}</div>;
 };
 
-export default MovieDetails;
+export default MovieDetail;
