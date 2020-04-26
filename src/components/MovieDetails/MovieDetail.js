@@ -6,6 +6,7 @@ import Trailer from "../Trailer/Trailer";
 import defaultBanner from "../../img/defaultBanner.png";
 
 const MovieDetail = ({ movie, trailer }) => {
+  console.log(movie);
   const movieDetails =
     Object.keys(movie).length === 0 ? (
       <div
@@ -33,10 +34,13 @@ const MovieDetail = ({ movie, trailer }) => {
             boxShadow: "inset 30px 1rem #000",
           }}
         />
-        {/* I want this image to be stacked on the backdrop together with the text below */}
+        {/* I want this image (poster_path) to be stacked on top of the backdrop together with the text below */}
+        {/* <img
+          src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
+          alt="qWAESFRDS"
+        /> */}
 
         <div className={classes.DetailsCard}>
-          Go Back
           <h1 style={{ color: "red" }}>{movie.title}</h1>
           <p>{movie.overview}</p>
           <p>Released Date:{movie.release_date}</p>

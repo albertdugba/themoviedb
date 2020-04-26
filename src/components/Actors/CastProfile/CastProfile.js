@@ -58,6 +58,8 @@ const CastProfile = props => {
             alt={cast.name}
           />
         </div>
+
+        {/* I want to the text to have a wider width than the image avatar */}
         <div className={classes.ProfileDetails}>
           <h4>Name:{cast.name}</h4>
           <span>Biography</span>
