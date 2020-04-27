@@ -22,3 +22,5 @@ CONST MOVIE_DB_API_KEY=4be3dca1c64c2fb77f30770cd942a1e2
 https://api.themoviedb.org/3/movie/343611?api_key=4be3dca1c64c2fb77f30770cd942a1e2&append_to_response=videos
 
 https://api.themoviedb.org/3/credit/{credit_id}?api_key=4be3dca1c64c2fb77f30770cd942a1e2
+
+http://api.themoviedb.org/3/movie/550/videos?api_key=4be3dca1c64c2fb77f30770cd942a1e2
