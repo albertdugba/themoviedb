@@ -48,7 +48,6 @@ const MoviesContainer = () => {
       .then(error => {
         dispatch({ type: MOVIE_SEARCH_FAILED, error: error });
       });
-    console.log(queryUrl);
   };
   const { movies, loading, errorMessage, title } = state;
 
@@ -73,8 +72,8 @@ const MoviesContainer = () => {
           {!loading && movies.length === 0 && (
             <h4 style={{ textAlign: "center" }}>
               Oops!, It seems like there is no movie by that{" "}
-              <strong style={{ color: "red" }}>name</strong>. Please try
-              another. <strong>term</strong>{" "}
+              <strong style={{ color: "red" }}>name</strong>Please try a
+              different <strong style={{ color: "red" }}>term</strong>{" "}
             </h4>
           )}
         </div>

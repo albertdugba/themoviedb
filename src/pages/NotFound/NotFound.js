@@ -13,7 +13,7 @@ const NotFound = () => {
         margin: "10px auto",
       }}
     >
-      <img src={errorPage} alt="404" style={{ width: "100%" }} />
+      <img src={errorPage} alt="Error-404" style={{ width: "100%" }} />
       <p>
         <Link to="/">
           <FaHome size={50} />

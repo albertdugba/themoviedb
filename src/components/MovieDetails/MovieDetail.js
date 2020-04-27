@@ -6,7 +6,6 @@ import Trailer from "../Trailer/Trailer";
 import defaultBanner from "../../img/defaultBanner.png";
 
 const MovieDetail = ({ movie, trailer }) => {
-  console.log(movie);
   const movieDetails =
     Object.keys(movie).length === 0 ? (
       <div
