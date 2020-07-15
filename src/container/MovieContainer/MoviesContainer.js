@@ -72,7 +72,7 @@ const MoviesContainer = () => {
           {!loading && movies.length === 0 && (
             <h4 style={{ textAlign: "center" }}>
               Oops!, It seems like there is no movie by that{" "}
-              <strong style={{ color: "red" }}>name</strong>Please try a
+              <strong style={{ color: "red" }}>name. </strong>Please try a
               different <strong style={{ color: "red" }}>term</strong>{" "}
             </h4>
           )}
