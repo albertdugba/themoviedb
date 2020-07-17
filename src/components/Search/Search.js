@@ -16,7 +16,6 @@ const Search = ({ search }) => {
   return (
     <div>
       <form onSubmit={onSubmit}>
-        <label htmlFor="search">Search</label>
         <input
           type="text"
           placeholder="Search for over 2 billion movies"

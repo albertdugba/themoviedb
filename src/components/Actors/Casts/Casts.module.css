@@ -5,7 +5,8 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   grid-gap: 1rem;
-  padding: auto;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
 }
-
-/* It doesn't properly center on mobile devices */

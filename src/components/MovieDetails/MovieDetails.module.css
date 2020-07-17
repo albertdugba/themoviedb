@@ -1,4 +1,31 @@
 @media (min-width: 769px) {
+  .DetailsContainer {
+    background-image: linear-gradient(to right rgba(201, 39, 39, 0.5));
+    height: 100%;
+    width: 100%;
+    position: relative;
+    z-index: -1;
+  }
+
+  .MovieCard {
+    /* position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+    opacity: 0.8;
+    z-index: 10000;
+    padding: 1rem;
+    display: flex;
+    flex-wrap: row wrap;
+    align-items: center;
+    margin-left: 10px;
+    padding: 1rem;
+    display: none; */
+    background-color: red;
+  }
+
   .DetailsCard {
     width: 100%;
     max-width: 75%;

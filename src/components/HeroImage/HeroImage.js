@@ -12,6 +12,7 @@ const HeroImage = ({ hero }) => {
       <Spinner />
     ) : (
       <div className={classes.Banner}>
+        {/* 1 */}
         <div>
           <img
             src={
@@ -23,6 +24,8 @@ const HeroImage = ({ hero }) => {
             className={classes.BannerOverlay}
           />
         </div>
+
+        {/* 2 */}
         <div className={classes.Featured}>
           <div className={classes.FeaturedCard}>
             <h1>{heroImg.title}</h1>

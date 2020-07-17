@@ -19,25 +19,48 @@ const MovieDetail = ({ movie, trailer }) => {
         <Spinner />
       </div>
     ) : (
-      <div className={classes.DetailsContainer}>
-        <img
-          src={
-            movie.backdrop_path
-              ? `https://image.tmdb.org/t/p/original/${movie.backdrop_path}`
-              : defaultBanner
-          }
-          alt={movie.title}
-          style={{
-            width: "100%",
-            height: "auto",
-            boxShadow: "inset 30px 1rem #000",
-          }}
-        />
-        {/* I want this image (poster_path) to be stacked on top of the backdrop together with the text below */}
-        {/* <img
-          src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
-          alt="qWAESFRDS"
-        /> */}
+      <>
+        <div className={classes.DetailsContainer}>
+          {/* 1 */}
+          <img
+            src={
+              movie.backdrop_path
+                ? `https://image.tmdb.org/t/p/original/${movie.backdrop_path}`
+                : defaultBanner
+            }
+            alt={movie.title}
+            style={{
+              width: "100%",
+              height: "auto",
+              objectFit: "contain",
+            }}
+          />
+
+          {/* 2 */}
+          <div className="MovieCard">
+            <div>
+              <img
+                src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
+                alt="qWAESFRDS"
+                style={{
+                  width: "26%",
+                  margin: "auto",
+                  objectFit: "contain",
+                  height: "auto",
+                  borderRadius: "10px",
+                  boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.45)",
+                }}
+              />
+            </div>
+
+            <div>
+              <p style={{ color: "red" }}>{movie.title}</p>
+              <p>{movie.overview}</p>
+              <p>Released Date:{movie.release_date}</p>
+            </div>
+          </div>
+          {/* end */}
+        </div>
 
         <div className={classes.DetailsCard}>
           <h1 style={{ color: "red" }}>{movie.title}</h1>
@@ -100,7 +123,7 @@ const MovieDetail = ({ movie, trailer }) => {
             </h1>
           </div>
         </div>
-      </div>
+      </>
     );
 
   return <div>{movieDetails}</div>;

@@ -16,6 +16,7 @@ import HeroImage from "../../components/HeroImage/HeroImage";
 
 const MoviesContainer = () => {
   const [state, dispatch] = useReducer(AppReducer, initialState);
+
   useEffect(() => {
     dispatch({ type: MOVIE_SEARCH_REQUEST });
     const movieBaseUrl =

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import classes from "./Movie.module.css";
 
-const Movie = ({ id, title, backdrop, poster_path }) => {
+const Movie = ({ id, title, poster_path }) => {
   return (
     <div className={classes.ImageContainer}>
       <Link to={`/movie/title/${id}`}>
