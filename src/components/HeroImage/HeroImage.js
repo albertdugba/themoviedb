@@ -27,10 +27,11 @@ const HeroImage = ({ hero }) => {
 
         {/* 2 */}
         <div className={classes.Featured}>
-          <div className={classes.FeaturedCard}>
-            <h1>{heroImg.title}</h1>
-            <p>{heroImg.overview}</p>
-          </div>
+          <img
+            src={`https://image.tmdb.org/t/p/original/${heroImg.poster_path}`}
+            alt=""
+            style={{ width: "30%", margin: "auto" }}
+          />
         </div>
       </div>
     );

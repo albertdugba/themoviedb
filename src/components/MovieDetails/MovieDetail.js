@@ -20,7 +20,10 @@ const MovieDetail = ({ movie, trailer }) => {
       </div>
     ) : (
       <>
-        <div className={classes.DetailsContainer}>
+        <div
+          className={classes.DetailsContainer}
+          style={{ position: "relative", width: "100vw", height: "100%" }}
+        >
           {/* 1 */}
           <img
             src={
@@ -38,64 +41,90 @@ const MovieDetail = ({ movie, trailer }) => {
 
           {/* 2 */}
           <div className="MovieCard">
-            <div>
+            <div
+              style={{
+                position: "absolute",
+                top: "0",
+                left: "0",
+                height: "100%",
+                width: "100%",
+                backgroundImage:
+                  "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8), rgba(0,0,0,0.1))",
+                zIndex: "1",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                flexFlow: "row",
+                padding: "1.4rem",
+              }}
+            >
               <img
                 src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
-                alt="qWAESFRDS"
+                alt={movie.title}
                 style={{
                   width: "26%",
                   margin: "auto",
                   objectFit: "contain",
                   height: "auto",
-                  borderRadius: "10px",
+                  borderRadius: "1rem",
                   boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.45)",
                 }}
               />
-            </div>
-
-            <div>
-              <p style={{ color: "red" }}>{movie.title}</p>
-              <p>{movie.overview}</p>
-              <p>Released Date:{movie.release_date}</p>
+              <div
+                className="MovieCardContent"
+                style={{
+                  flex: "1.2",
+                  color: "white",
+                  borderRadius: "9px",
+                  padding: "1rem",
+                  marginLeft: "12px",
+                }}
+              >
+                <h1 style={{ color: "red" }}>{movie.title}</h1>
+                <p>
+                  Genres:
+                  {movie.genres.map(gn => (
+                    <li
+                      key={gn.id}
+                      style={{
+                        display: "inline",
+                        margin: "4px",
+                        padding: "5px",
+                        color: "white",
+                        background: "red",
+                        borderRadius: "10px",
+                        height: "20px",
+                        fontSize: "10px",
+                      }}
+                    >
+                      {gn.name}
+                    </li>
+                  ))}
+                </p>
+                <h3>Overview</h3>
+                <p>{movie.overview}</p>
+                <p>Released Date:{movie.release_date}</p>
+                <p>
+                  Prod.Companies:
+                  {movie.production_companies.map(p => (
+                    <li
+                      key={p.id}
+                      style={{ display: "inline" }}
+                    >{`${p.name}, `}</li>
+                  ))}
+                </p>
+                <p>Status:{movie.status}</p>
+                <p>Popularity:{movie.popularity}</p>
+                <p>Budget:${movie.budget.toFixed(2)}</p>
+                <p>Revenue:${movie.revenue.toFixed(2)}</p>
+              </div>
             </div>
           </div>
+
           {/* end */}
         </div>
 
         <div className={classes.DetailsCard}>
-          <h1 style={{ color: "red" }}>{movie.title}</h1>
-          <p>{movie.overview}</p>
-          <p>Released Date:{movie.release_date}</p>
-          <p>Popularity:{movie.popularity}</p>
-          <p>Budget:${movie.budget.toFixed(2)}</p>
-          <p>Revenue:${movie.revenue.toFixed(2)}</p>
-          <p>Status:{movie.status}</p>
-          <p>
-            Prod.Companies:
-            {movie.production_companies.map(p => (
-              <li key={p.id} style={{ display: "inline" }}>{`${p.name}, `}</li>
-            ))}
-          </p>
-          <p>
-            Genres:
-            {movie.genres.map(gn => (
-              <li
-                key={gn.id}
-                style={{
-                  display: "inline",
-                  margin: "4px",
-                  padding: "5px",
-                  color: "white",
-                  background: "red",
-                  borderRadius: "10px",
-                  height: "20px",
-                  fontSize: "10px",
-                }}
-              >
-                {gn.name}
-              </li>
-            ))}
-          </p>
           <div>
             <h1
               style={{
