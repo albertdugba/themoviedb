@@ -25,6 +25,7 @@
     left: 0;
     padding: 2rem;
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
     text-align: center;
     align-items: center;

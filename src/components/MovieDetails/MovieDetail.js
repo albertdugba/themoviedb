@@ -21,7 +21,7 @@ const MovieDetail = ({ movie, trailer }) => {
     ) : (
       <>
         <div
-          className={classes.DetailsContainer}
+          className={classes.DetailsContainer} //MovieDetailsContainer
           style={{ position: "relative", width: "100vw", height: "100%" }}
         >
           {/* 1 */}
@@ -40,8 +40,8 @@ const MovieDetail = ({ movie, trailer }) => {
           />
 
           {/* 2 */}
-          <div className="MovieCard">
-            <div
+          <div>
+            <div //moviecard
               style={{
                 position: "absolute",
                 top: "0",
@@ -70,7 +70,7 @@ const MovieDetail = ({ movie, trailer }) => {
                   boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.45)",
                 }}
               />
-              <div
+              <div //cardcontent
                 className="MovieCardContent"
                 style={{
                   flex: "1.2",

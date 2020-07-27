@@ -27,11 +27,7 @@ const HeroImage = ({ hero }) => {
 
         {/* 2 */}
         <div className={classes.Featured}>
-          <img
-            src={`https://image.tmdb.org/t/p/original/${heroImg.poster_path}`}
-            alt=""
-            style={{ width: "30%", margin: "auto" }}
-          />
+          <h1 style={{ color: "white", fontSize: "5rem" }}>{heroImg.title}</h1>
         </div>
       </div>
     );

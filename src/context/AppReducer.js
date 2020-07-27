@@ -28,7 +28,7 @@ export const AppReducer = (state, action) => {
       return {
         ...state,
         movies: action.payload,
-        heroImg: action.payload[7],
+        heroImg: action.payload[9],
         loading: false,
         errorMessage: null,
       };
