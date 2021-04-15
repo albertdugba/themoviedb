@@ -2,7 +2,8 @@ import React, { useEffect, useReducer } from "react";
 import axios from "axios";
 
 import Movie from "../../components/Movies/Movie";
-import Search from "../../components/Search/Search";
+// import Search from "../../components/Search/Search";
+
 import Spinner from "../../components/Spinner/Spinner";
 import { AppReducer, initialState } from "../../context/AppReducer";
 import {
@@ -13,6 +14,7 @@ import {
 
 import classes from "./MovieContainer.module.css";
 import HeroImage from "../../components/HeroImage/HeroImage";
+import Search from "@components/Search/Search";
 
 const MoviesContainer = () => {
   const [state, dispatch] = useReducer(AppReducer, initialState);

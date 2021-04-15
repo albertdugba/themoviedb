@@ -1,29 +1,27 @@
-import React from "react";
+import React from 'react';
 
-import classes from "./MovieDetails.module.css";
-import Spinner from "../Spinner/Spinner";
-import Trailer from "../Trailer/Trailer";
-import defaultBanner from "../../img/defaultBanner.png";
+import classes from './MovieDetails.module.css';
+import Spinner from '../Spinner/Spinner';
+import defaultBanner from '../../img/defaultBanner.png';
+import Trailer from '../Trailer/Trailer';
 
 const MovieDetail = ({ movie, trailer }) => {
   const movieDetails =
     Object.keys(movie).length === 0 ? (
       <div
         style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          marginTop: "20px",
-        }}
-      >
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          marginTop: '20px',
+        }}>
         <Spinner />
       </div>
     ) : (
       <>
         <div
           className={classes.DetailsContainer} //MovieDetailsContainer
-          style={{ position: "relative", width: "100vw", height: "100%" }}
-        >
+          style={{ position: 'relative', width: '100vw', height: '100%' }}>
           {/* 1 */}
           <img
             src={
@@ -33,9 +31,9 @@ const MovieDetail = ({ movie, trailer }) => {
             }
             alt={movie.title}
             style={{
-              width: "100%",
-              height: "auto",
-              objectFit: "contain",
+              width: '100%',
+              height: 'auto',
+              objectFit: 'contain',
             }}
           />
 
@@ -43,60 +41,57 @@ const MovieDetail = ({ movie, trailer }) => {
           <div>
             <div //moviecard
               style={{
-                position: "absolute",
-                top: "0",
-                left: "0",
-                height: "100%",
-                width: "100%",
+                position: 'absolute',
+                top: '0',
+                left: '0',
+                height: '100%',
+                width: '100%',
                 backgroundImage:
-                  "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8), rgba(0,0,0,0.1))",
-                zIndex: "1",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                flexFlow: "row",
-                padding: "1.4rem",
-              }}
-            >
+                  'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8), rgba(0,0,0,0.1))',
+                zIndex: '1',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                flexFlow: 'row',
+                padding: '1.4rem',
+              }}>
               <img
                 src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
                 alt={movie.title}
                 style={{
-                  width: "26%",
-                  margin: "auto",
-                  objectFit: "contain",
-                  height: "auto",
-                  borderRadius: "1rem",
-                  boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.45)",
+                  width: '26%',
+                  margin: 'auto',
+                  objectFit: 'contain',
+                  height: 'auto',
+                  borderRadius: '1rem',
+                  boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.45)',
                 }}
               />
               <div //cardcontent
                 className="MovieCardContent"
                 style={{
-                  flex: "1.2",
-                  color: "white",
-                  borderRadius: "9px",
-                  padding: "1rem",
-                  marginLeft: "12px",
-                }}
-              >
-                <h1 style={{ color: "red" }}>{movie.title}</h1>
+                  flex: '1.2',
+                  color: 'white',
+                  borderRadius: '9px',
+                  padding: '1rem',
+                  marginLeft: '12px',
+                }}>
+                <h1 style={{ color: 'red' }}>{movie.title}</h1>
                 <p>
                   Genres:
                   {movie.genres.map(gn => (
                     <li
                       key={gn.id}
                       style={{
-                        display: "inline",
-                        margin: "4px",
-                        padding: "5px",
-                        color: "white",
-                        background: "red",
-                        borderRadius: "10px",
-                        height: "20px",
-                        fontSize: "10px",
-                      }}
-                    >
+                        display: 'inline',
+                        margin: '4px',
+                        padding: '5px',
+                        color: 'white',
+                        background: 'red',
+                        borderRadius: '10px',
+                        height: '20px',
+                        fontSize: '10px',
+                      }}>
                       {gn.name}
                     </li>
                   ))}
@@ -109,8 +104,7 @@ const MovieDetail = ({ movie, trailer }) => {
                   {movie.production_companies.map(p => (
                     <li
                       key={p.id}
-                      style={{ display: "inline" }}
-                    >{`${p.name}, `}</li>
+                      style={{ display: 'inline' }}>{`${p.name}, `}</li>
                   ))}
                 </p>
                 <p>Status:{movie.status}</p>
@@ -128,12 +122,11 @@ const MovieDetail = ({ movie, trailer }) => {
           <div>
             <h1
               style={{
-                color: "red",
-                maxWidth: "1040px",
-                margin: "20px auto",
-                textAlign: "center",
-              }}
-            >
+                color: 'red',
+                maxWidth: '1040px',
+                margin: '20px auto',
+                textAlign: 'center',
+              }}>
               Official Trailer(s)
             </h1>
             <Trailer trailer={trailer} />
@@ -142,12 +135,11 @@ const MovieDetail = ({ movie, trailer }) => {
           <div>
             <h1
               style={{
-                color: "red",
-                maxWidth: "1040px",
-                margin: "20px auto",
-                textAlign: "center",
-              }}
-            >
+                color: 'red',
+                maxWidth: '1040px',
+                margin: '20px auto',
+                textAlign: 'center',
+              }}>
               Casts
             </h1>
           </div>
