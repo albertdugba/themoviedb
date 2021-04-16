@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import classes from './Movie.module.css';
 import noImage from '../../img/no-image-found.png';
 
-const Movie = ({ id, title, poster_path }) => {
+const Movie = ({ id, title, poster_path, popularity }) => {
   return (
     <div className={classes.Movie}>
       <Link to={`/movie/title/${id}`}>
@@ -17,6 +17,10 @@ const Movie = ({ id, title, poster_path }) => {
           alt={title}
         />
       </Link>
+      <div className={classes.info}>
+        <h3>{title ? title : 'Not available'}</h3>
+        <span>{popularity}</span>
+      </div>
     </div>
   );
 };

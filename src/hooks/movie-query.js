@@ -3,6 +3,7 @@ import {
   fetchMovieBySearch,
   fetchMovies,
   fetchPopularTvShows,
+  fetchTopRated,
 } from 'service/api-endpoint';
 
 export const useQueryMovies = () => {
@@ -20,7 +21,10 @@ export const usePopularTvShows = () => {
   return { ...result, popularTvShows: result.data };
 };
 
-export const useTvShows = () => {};
+export const useTopRated = () => {
+  const result = useQuery('topRated', fetchTopRated);
+  return { ...result, topRated: result.data };
+};
 
 export const useMovieRecommendations = () => {};
 
