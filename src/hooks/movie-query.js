@@ -12,12 +12,12 @@ export const useQueryMovies = () => {
 
 export const useSearchMovies = query => {
   const result = useQuery('movieSearch', fetchMovieBySearch(query));
-  return { ...result, queriedMovie: result.data ?? 'loading' };
+  return { ...result, queriedMovie: result.data };
 };
 
 export const usePopularTvShows = () => {
   const result = useQuery('popularTvShows', fetchPopularTvShows);
-  return { ...result, popularTvShows: result.data ?? 'loading' };
+  return { ...result, popularTvShows: result.data };
 };
 
 export const useTvShows = () => {};

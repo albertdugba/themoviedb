@@ -1,5 +1,4 @@
 import React from 'react';
-
 import Movie from 'components/Movies/Movie';
 import { useQueryMovies } from 'hooks/movie-query';
 
