@@ -1,70 +1,11 @@
-@media (min-width: 763px) {
-  img {
-    width: 100%;
-    height: auto;
-    border-radius: 1.5%;
-    align-self: center;
-    justify-self: center;
-    justify-items: center;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.45);
-    transition: all 0.4s ease-out;
-  }
-
-  .ImageContainer img:hover {
-    transform: scale(1.02125);
-  }
-
-  .ImageContainer {
-    align-self: center;
-    justify-items: center;
-  }
-
-  .MovieBio {
-    display: none;
-  }
+.Movie {
+  display: flex;
+  width: 100%;
 }
 
-@media (max-width: 762px) {
-  .ImageContainer img {
-    border-radius: 4.5%;
-    align-self: center;
-    justify-self: center;
-    justify-items: center;
-    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.45); */
-    transition: all 0.4s ease-out;
-  }
-
-  .ImageContainer {
-    align-self: center;
-    justify-items: center;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    background: #ffff;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.45);
-    /* padding: 0.6rem; */
-    border-radius: 9px;
-  }
-
-  .ImageContainer a {
-    display: block;
-  }
-
-  img {
-    width: 100px;
-    height: 180px;
-  }
-
-  .MovieBio {
-    /* display: flex; */
-    align-items: stretch;
-    flex: 1.3;
-    margin-left: 1rem;
-    height: 166px;
-    margin-top: 20px;
-  }
-
-  .MovieBio span {
-    color: grey;
-  }
+.Movie img {
+  object-fit: contain;
+  max-width: 180px;
+  padding: 0.5rem;
+  border-radius: 13px;
 }
