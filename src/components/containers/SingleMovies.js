@@ -4,6 +4,7 @@ import { useQueryMovies } from 'hooks/movie-query';
 
 export const SingleMovies = ({ title, className }) => {
   const { movies } = useQueryMovies();
+  console.log('single movies', movies);
 
   return (
     <>

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import noImage from '../../img/no_image.jpg';
 import classes from './Movie.module.css';
 
-export const IndividualTvShows = ({ poster_path, title, id }) => {
+export const IndividualTvShows = ({ poster_path, name, id }) => {
   return (
     <>
       <div className={classes.Movie}>
@@ -14,9 +14,13 @@ export const IndividualTvShows = ({ poster_path, title, id }) => {
                 ? `https://image.tmdb.org/t/p/w500/${poster_path}`
                 : noImage
             }
-            alt={title}
+            alt={name}
           />
         </Link>
+        <div className={classes.info}>
+          <h3>{name ? name : 'Not available'}</h3>
+          <button>View Details</button>
+        </div>
       </div>
     </>
   );

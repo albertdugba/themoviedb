@@ -4,7 +4,7 @@ import React from 'react';
 
 export const TopRated = ({ className, title }) => {
   const { topRated, isLoading, isError, error } = useTopRated();
-  console.log(topRated);
+  console.log('Top Rated', topRated);
   return (
     <>
       <span className="movie--title">{title}</span>

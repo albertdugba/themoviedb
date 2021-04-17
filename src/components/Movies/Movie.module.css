@@ -9,7 +9,7 @@
   object-fit: contain;
   max-width: 200px;
   padding: 0.5rem;
-  border-radius: 13px;
+  border-radius: 10px;
   transition: opacity 0.6s ease-out;
 }
 
@@ -21,20 +21,39 @@
   bottom: 4%;
   left: 4%;
   overflow: hidden;
-  background: rgba(0, 0, 0, 0.8);
+  background: linear-gradient(
+    to bottom,
+    rgba(42, 159, 255, 0.2) 0%,
+    rgba(33, 33, 32, 1) 60%,
+    rgba(33, 33, 32, 1) 100%
+  );
+  background-blend-mode: multiply;
   color: white;
   padding: 1rem;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
+  border-radius: 6px;
   transition: height 0.5s ease-out;
   opacity: 0;
+  margin-top: auto;
 }
 
 .Movie:hover .info {
-  height: 50%;
+  height: 93.5%;
   opacity: 1;
 }
 
 .info h3 {
-  font-size: 0.8rem;
+  font-size: 1.2rem;
+  margin-top: 120px;
+}
+
+button {
+  outline: none;
+  border: none;
+  display: block;
+  padding: 0.7rem;
+  cursor: pointer;
+  border: 2px solid #fff;
+  color: #fff;
+  background: transparent;
+  width: 100%;
 }
